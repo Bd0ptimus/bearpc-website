@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="admin_main_style.css">
+    <link rel="stylesheet" type="text/css" href="../nav-bar/admin_navbar_style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--src = "js/sub_functions/set_attributes.js"-->
+    <script src="../../js/libs.js"></script>
+    <script src="admin_main.js"></script>
+   
+</head>
+
+<body id="main-center-body" onload="loadPage()">
+    <section class = "main-sec">
+        <div class = "product-navbar-sec">
+            <div id = "product-navbar-sec-load">
+            </div>
+        </div>
+        
+        <div class = "main-main-sec">
+            <h1>Главное</h1>
+            <div class = 'main-center-container'>                
+                <h3>Слоган сайта</h3>
+                <div class ='main-center-edit-sec' id="main-center-edit-sec-add">
+                    
+                    <div class = "main-center-edit-cell">
+                        <div class = 'main-center-edit-container'>
+                            <div class = 'main-center-edit-textfield-sec'>
+                                <textarea class = 'main-center-edit-textfield' type="text" id="textfield-main"></textarea>
+                            </div>
+                            <div class = 'main-center-edit-functions-sec'>
+                                <button class = 'main-center-edit-functions-tbn' onclick='saveBtnControl()' style="color:black;">Сохранить</button>
+                            </div>
+                            
+                        </div>
+
+                        <p style = "color : red; font-size : 10px" id="warning-main"></p>
+                    </div>
+                    
+                </div> 
+
+               
+            </div>
+        </div>
+
+        
+        
+    </section>
+    
+    
+</body>

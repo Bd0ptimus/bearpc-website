@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="admin_login_style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--src = "js/sub_functions/set_attributes.js"-->
+
+    <script src="../js/libs.js"></script>
+    <script >
+
+        function showPass() {
+                var x = document.getElementById("password-input");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                    }
+                }
+
+        function loginEvent(){
+            var dataToServer = takeInfo();
+            console.log("Success response : " + JSON.stringify(dataToServer));
+            $.ajax({
+                type: "POST",
+                url: mainUrl +"serverside/admin_control/login.php",
+                dataType: 'json',
+                data: {
+                    'data' :dataToServer,
+                },
+                success: function (file_content) {
+                    //Output formatted JSON
+                    //response - {
+                    //      'complete' : ,
+                    //      'complete_code' :,
+                    //      
+                    //}
+                    console.log("Success response : " + JSON.stringify(file_content));
+                    if(file_content['complete_code'] == 0){
+                        console.log('not complete login');
+                        document.getElementById('warning').innerText = file_content['data']['comment'];
+                    }else{
+                        console.log('complete login');
+                        sessionStorage.setItem('login', 'true');
+                        accessUrl(mainUrl + 'admin_control/category/');
+                    }
+                
+                },
+                error: function (error_text) {
+                    console.log("Error response : " + JSON.stringify(error_text));
+                    
+                }
+
+            });
+        }
+
+        function accessUrl(url){
+            location.href=url;
+        }
+
+        function takeInfo(){
+            var adminCode = document.getElementById("admin-code-input").value;
+            var password = document.getElementById("password-input").value;
+            var jsonStr = {
+                'admin' : adminCode,
+                'password' : password,
+            };
+            return jsonStr;
+        }
+    </script>
+
+    
+
+</head>
+
+<body>
+    <section class = "login-sec">
+        <div class="login-container">
+            <label for="uname"><b>Код администратора</b></label><br>
+            <input id="admin-code-input" type="text" placeholder="Введите код администратора" name="uname"  size="30" required>
+            <br>
+            <label for="psw"><b>Пароль</b></label><br>
+            <input id="password-input" type="password" placeholder="Введите пароль" name="psw" size="50" required>
+            <br>
+            <input type="checkbox" onclick="showPass()">Показать пароль
+            <br>
+            <p id="warning" style = "color: red;"></p><br>
+            <button type="submit" onclick="loginEvent()">Вход</button>
+        </div>
+    </section>
+    
+</body>

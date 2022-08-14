@@ -1,0 +1,532 @@
+html, body{
+    max-width: 100%;
+    /*overflow-x: hidden;*/
+}
+
+body{
+    margin :0;
+}
+
+.mainpage-sec{
+    
+    width: 100%;
+    height: auto;
+}
+/*Header sec*/
+/*Header text section*/
+.mainpage-header-sec{
+    
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    background-image: url(../assets/page-img/main-page/header-img.png);
+    
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.mainpage-headertext-align{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.mainpage-headertext-sec{
+    margin-top: 50px;
+}
+.mainpage-header-text{
+    
+    color : #00335E;
+    font-family: "Montserrat", Sans-serif;
+    line-height: 50px;
+}
+
+.mainpage-header-contact-sec{
+    width : 100%;
+    height : auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.mainpage-header-contact-button{
+    width : 200px;
+    background-color : #00335E;
+    color : white;
+    font-size: 18px;
+    font-family: "Montserrat", Sans-serif;
+    padding : 27px 18px;
+    margin : 15px auto;
+    border-radius: 30px 30px 30px 30px;
+}
+
+.mainpage-header-contact-button:hover{
+    cursor: pointer;
+    background-color : white;
+    color: #00335E;
+    border: solid 3px #00335E;
+    transition: 0.5s;
+}
+
+
+/*Middle section*/
+/*Table Request and Service*/
+.mainpage-middle-request-service-sec{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.mainpage-request-service-sec{
+    max-width : 1160px;
+    width: 100%;
+    height : auto;
+    display: inline-block;
+}
+
+.mainpage-table{
+    background-color:white;
+    display: inline-block;
+    border: solid 3px;
+    width: 48%;
+    height : auto;
+    margin: 0px 2px;
+    border-radius:5px 5px 5px 5px;
+
+}
+
+.mainpage-table-label{
+    width: 100%;
+    height : 40px;
+    background-color:#00335E;
+    text-align: center;
+    display: table;
+}
+
+.mainpage-table-contents{
+    background-color: white;
+    width: 100%;
+    height : auto;
+
+}
+
+.mainpage-table-label-text{
+    color : white;
+    font-size: 13px;
+    font-family: "Montserrat", Sans-serif;
+    font-weight: bold;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.mainpage-service-choosing-text{
+    margin : 0px;
+    color : #00335E;
+    font-size: 20px;
+    font-family: "Montserrat", Sans-serif;
+    font-weight: 700;
+}
+
+.mainpage-service-choosing:hover{
+    background-color: #e0e0eb;
+    cursor: pointer;
+    transition : 0.5s;
+}
+
+/*Address section*/
+/*phone number*/
+.mainpage-address-sec{
+    width: 100%;
+    margin : 30px auto;
+    display: flex;
+    justify-content: center;
+}
+.mainpage-address-sec-1{
+    /*display: block;*/
+    width : 96%;
+    height : auto;
+    margin : 30px auto;
+    max-width : 1160px;
+}
+
+.mainpage-address-sec-text-info{
+    width : auto;
+    font-family: "Montserrat", Sans-serif;
+    color : #00335E;
+}
+
+#mainpage-address-sec-telephone-sec{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    
+}
+
+#mainpage-address-sec-telephone-boderaround{
+    padding: 2px 12px;
+    border : solid 2px #00335E;
+    border-radius: 40px 40px 40px 40px;
+}
+
+#mainpage-address-sec-text-sec{
+    width : auto;
+    display: flex;
+    justify-content: center;
+}
+
+#mainpage-address-sec-text-boderaround{
+    padding: 2px 12px;
+    border : solid 2px #00335E;
+    border-radius: 40px 40px 40px 40px;
+}
+
+#mainpage-address-sec-address{
+    display: flex;
+    justify-content: center;
+}
+/*Map*/
+.mainpage-address-sec-map{
+    width: 100%;
+}
+#mainpage-address-sec-map-frame{
+    width : 100%;
+    height : 100%;
+}
+@media (max-width: 5000px){
+    /*Header sec*/
+    /*Header text*/
+    .mainpage-header-text{
+        font-size: 45px;
+        font-weight: 900;
+        width: 700px;
+    }
+
+    
+    /*Middle sec*/  
+    /*Table Request and Service*/
+    .mainpage-request-service-sec{
+        display: flex;
+        justify-content: center;
+        height : auto;
+    }
+    .mainpage-table{
+        height : auto;
+    }
+    .mainpage-service-choosing{
+        padding : 30px;
+        height : auto;
+        display: flex;
+        justify-content: left;
+    }
+
+
+    .mainpage-service-choosing-img{
+        margin : 8px auto;
+        width : 50px;
+        height : 50px;
+    }
+
+    .mainpage-service-choosing-text-sec{
+        padding : 10px;
+    }
+
+    .mainpage-content-recommend-sec{
+        height : 250px;
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    .mainpage-content-recommend-sec:hover{
+        cursor: pointer;
+        transition : 0.5s;
+        background-color: #e0e0eb;
+    }
+
+    .mainpage-content-header{
+        font-family: "Montserrat", Sans-serif;
+        color : #00335E;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .mainpage-content-text{
+        font-family: "Montserrat", Sans-serif;
+        color : black;
+        font-weight: 400;
+        font-size: 15px;
+    }
+    .mainpage-content-link{
+        font-family: "Montserrat", Sans-serif;
+        color : #00335E;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .mainpage-content-recommend-half{
+        height : 100%;
+        /*width : 50%;*/
+        
+    }
+
+    #mainpage-content-recommend-half-left{
+        width: 35%;
+        /*
+        display : flex;
+        justify-content: center;*/
+    }
+    #mainpage-content-recommend-half-right{
+        width: 65%;
+    }
+
+    .mainpage-content-recommend-half img{
+        width:100%;
+        height:auto;
+        max-height: 230px;
+        max-width : 176px;
+    }
+
+    /*Address section*/
+
+    .mainpage-address-sec-1{
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainpage-address-sec-half{
+        width : 50%;
+        height: auto;
+    }
+
+    #mainpage-address-sec-half-left{
+        display: flex;
+        justify-content: center;
+    }
+    
+    #mainpage-address-sec-half-right{
+        display: flex;
+        justify-content: right;
+    }
+
+    .mainpage-address-sec-info{
+        display: block;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1020px){
+    /*Header sec*/
+    /*Header text*/
+    .mainpage-header-text{
+        font-size: 45px;
+        font-weight: 900;
+        width: 700px;
+    }
+
+
+    /*Middle sec*/
+    /*Table Request and Service*/
+    .mainpage-table{
+        height : auto;
+    }
+
+    .mainpage-content-recommend-sec{
+        height : 250px;
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    .mainpage-content-recommend-sec:hover{
+        cursor: pointer;
+        transition : 0.5s;
+        background-color: #e0e0eb;
+    }
+
+    .mainpage-content-header{
+        font-family: "Montserrat", Sans-serif;
+        color : #00335E;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .mainpage-content-text{
+        font-family: "Montserrat", Sans-serif;
+        color : black;
+        font-weight: 400;
+        font-size: 15px;
+    }
+    .mainpage-content-link{
+        font-family: "Montserrat", Sans-serif;
+        color : #00335E;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+
+    .mainpage-content-recommend-half{
+        height : 100%;
+        /*width : 50%;*/
+    }
+
+    #mainpage-content-recommend-half-left{
+        width: 35%;
+        /*
+        display : flex;
+        justify-content: center;*/
+    }
+    #mainpage-content-recommend-half-right{
+        width: 65%;
+    }
+
+    .mainpage-content-recommend-half img{
+        width:100%;
+        height:auto;
+        /*
+        max-height: 300px;
+        max-width : 230px;*/
+        max-height: 200px;
+        max-width : 153px;
+    }
+
+    /*Address section*/
+
+    
+    .mainpage-address-sec-1{
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainpage-address-sec-half{
+        width : 50%;
+        height: auto;
+        
+    }
+
+    #mainpage-address-sec-half-left{
+        display: flex;
+        justify-content: center;
+    }
+    
+    #mainpage-address-sec-half-right{
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width:750px){
+    /*Header sec*/
+    /*Header text*/
+    .mainpage-header-text{
+        line-height: 30px;
+    }
+    .mainpage-header-text{
+        font-size: 25px;
+        font-weight: 600;
+        margin : auto 5%;
+    }
+
+    /*Middle sec*/
+    /*Table Request and Service*/
+
+
+    .mainpage-content-header{
+        font-size: 15px;
+    }
+    .mainpage-content-text{
+        font-size: 10px;
+    }
+    .mainpage-content-link{
+        font-size: 12px;
+    }
+    .mainpage-content-recommend-sec{
+        height : 230px;       
+    }
+
+    .mainpage-content-recommend-half{
+        height : 100%;
+        width : 50%;
+    }
+
+    .mainpage-content-recommend-half img{
+        width:100%;
+        height:auto;
+        max-height: 200px;
+        max-width : 153px;
+    }
+
+    .mainpage-middle-request-service-sec{
+        max-width: 95%;
+        height : auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainpage-request-service-sec{
+        height : auto;
+        display: block;
+        justify-content: center;
+    }
+    
+    .mainpage-request-service-sec{
+        width: 100%;
+        height : auto;
+        display: block;
+        justify-content: center;
+    }
+    .mainpage-table{
+        display : block;
+        width: 100%;
+        height :auto;
+        margin: auto 10px;
+    
+    }
+
+    .mainpage-service-choosing{
+        padding : 20px;
+        height : auto;
+        display: block;
+        justify-content: center;
+    }
+
+    .mainpage-service-choosing-img-sec{
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainpage-service-choosing-img{
+        margin : 8px auto;
+        width : 50px;
+        height : 50px;
+    }
+
+    .mainpage-service-choosing-text-sec{
+        padding : 10px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .mainpage-service-choosing-text{
+        text-align: center;
+    }
+
+    /*Address section*/
+    .mainpage-address-sec-1{
+        display: block;
+        justify-content: center;
+    }
+    .mainpage-address-sec-half{
+        width : 100%;
+        height: auto;
+
+    }
+    #mainpage-address-sec-half-right{
+        width : auto;
+        height : 300px;
+        padding : 20px;
+    }
+
+}
+
+
+

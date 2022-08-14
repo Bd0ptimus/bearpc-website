@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <title>Upload Files</title>
+  </head>
+
+  <body>
+    <form method="post" enctype="multipart/form-data">
+      <input id="file-form" type="file" name="files[]" multiple />
+      <!--<input type="submit" value="Upload File" name="submit" onclick="takeFile()"/>-->
+      
+    </form>
+    <button onclick="takeFile()">enter</button>
+    <img id="blah" src="#" alt="your image" />
+
+    <script src="upload.js"></script>
+  </body>
+</html>

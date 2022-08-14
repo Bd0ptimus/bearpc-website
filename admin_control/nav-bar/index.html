@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--<link rel="stylesheet" type="text/css" href="admin_navbar_style.css">-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--src = "js/sub_functions/set_attributes.js"-->
+    <script >
+        function checkLoginPage(){
+            if(sessionStorage.getItem("login")!='true'){
+                accessUrl(mainUrlCall);
+            }
+        }
+
+        var mainUrlCall=mainUrl+'admin_control';
+        function accessUrl(url){
+            location.href=url;
+        }
+        function clickEvent(subPath){
+            if(subPath =='/main/'){
+                document.getElementById('main-navbar-tbn').style.backgroundColor = 'white';
+                document.getElementById('category-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('product-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('about-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('service-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('contact-navbar-tbn').style.backgroundColor = 'gray';
+
+            }
+            else if(subPath =='/category/'){
+                document.getElementById('main-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('category-navbar-tbn').style.backgroundColor = 'white';
+                document.getElementById('product-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('about-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('service-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('contact-navbar-tbn').style.backgroundColor = 'gray';
+
+            }else if(subPath =='/product/'){
+                document.getElementById('main-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('category-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('product-navbar-tbn').style.backgroundColor = 'white';
+                document.getElementById('about-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('service-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('contact-navbar-tbn').style.backgroundColor = 'gray';
+
+            }else if(subPath =='/about/'){
+                document.getElementById('main-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('category-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('product-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('about-navbar-tbn').style.backgroundColor = 'white';
+                document.getElementById('service-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('contact-navbar-tbn').style.backgroundColor = 'gray';
+
+            }
+            else if(subPath =='/service/'){
+                document.getElementById('main-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('category-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('product-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('about-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('service-navbar-tbn').style.backgroundColor = 'white';
+                document.getElementById('contact-navbar-tbn').style.backgroundColor = 'gray';
+
+            }
+            else if(subPath =='/contact/'){
+                document.getElementById('main-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('category-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('product-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('about-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('service-navbar-tbn').style.backgroundColor = 'gray';
+                document.getElementById('contact-navbar-tbn').style.backgroundColor = 'white';
+
+            }
+            accessUrl(mainUrlCall+subPath);
+        }
+    </script>
+
+    
+
+</head>
+
+<body onload="checkLoginPage();">
+    <section class = "navbar-sec">
+        <div class = 'navbar-button-container'> 
+            <div class="navbar-button-sec" id = 'main-navbar-tbn' onclick="clickEvent('/main/')">
+                <p class = 'nav-button-text'>
+                    Главное
+                </p>
+            </div>  
+            <div class="navbar-button-sec" id = 'category-navbar-tbn' onclick="clickEvent('/category/')">
+                <p class = 'nav-button-text'>
+                    Категории
+                </p>
+            </div>  
+            <div class="navbar-button-sec" id = 'product-navbar-tbn' onclick="clickEvent('/product/')">
+                <p class = 'nav-button-text'>
+                    Продукты
+                </p>
+            </div>
+            <div class="navbar-button-sec" id = 'about-navbar-tbn' onclick="clickEvent('/about/')">
+                <p class = 'nav-button-text'>
+                    О Нас
+                </p>
+            </div>
+            <div class="navbar-button-sec" id = 'service-navbar-tbn' onclick="clickEvent('/service/')">
+                <p class = 'nav-button-text'>
+                    Услуги
+                </p>
+            </div>
+            <div class="navbar-button-sec" id = 'contact-navbar-tbn' onclick="clickEvent('/contact/')">
+                <p class = 'nav-button-text'>
+                    Контакты
+                </p>
+            </div>
+
+        </div>
+       
+    </section>
+    
+</body>

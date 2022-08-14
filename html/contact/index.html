@@ -1,0 +1,82 @@
+<!--CONTACT Page-->
+<!--Index html-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Контакты</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/page-img/nav-bar/logo108x300.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+        var screenMode = 0; //1 : phone, 2 : tablet-pc
+        $(window).on("load", function () {
+            if(document.documentElement.clientWidth > 750){
+                screenMode = 2;
+                $("#contactpage-load").load("contact_page_pc_tablet.html");
+                
+            }else{
+                screenMode = 1;
+                $("#contactpage-load").load("contact_page_m.html");
+                
+            }
+
+        });
+
+        $(window).resize(function() {
+            console.log("screen mod : " + screenMode);
+            if(document.documentElement.clientWidth > 750){
+                
+                if(screenMode == 1){
+                    screenMode = 2;
+                    $("#contactpage-load").load("contact_page_pc_tablet.html");
+                }
+            }else{
+                if(screenMode == 2){
+                    screenMode = 1;
+                    $("#contactpage-load").load("contact_page_m.html");
+                }   
+            }
+
+        });
+
+    </script>
+    <style>
+        #loader {
+            border: 12px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 12px solid #444444;
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+        }
+          
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+          
+        .center {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                margin-top: -50px; 
+                margin-left: -50px; 
+        }
+    </style>
+
+    
+
+</head>
+
+<body>
+    <div id="loader" class="center"></div>
+    <div id="contactpage-load" style="width:100%; padding: 0; position: relative;">
+
+    </div>
+
+</body>

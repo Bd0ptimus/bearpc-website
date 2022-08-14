@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../css/footer-header-style/footer_style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title></title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/04e9a3dbb4.js" crossorigin="anonymous"></script>
+        <script src="../../js/footer-header-controller/footer_control.js"></script>
+    </head>
+    <body>
+        <section class = "footer-sec">
+            <div class = "footer-main-sec">
+                <div class = "footer-sec-logo-sec">
+                    <img src="../../assets/page-img/footer/footer-logo.png" width="30">
+                </div>
+                <div class="footer-main-navbar-info">
+                    <!--Upper part-->
+                    <div class = "footer-sec-main-half" id="footer-sec-main-above">
+                        <div class = "footer-main-navbar-sec">
+                            <div class = "footer-main-navbar-content-sec">
+                                <div class = "footer-main-button-sec">
+                                    <button class="footer-main-button">
+                                        <a class="footer-main-button-text" style="margin: 0px;" href ="http://bear-pc.ru/">ГЛАВНАЯ</a>
+                                    </button>
+                                </div>
+                                <!--<div class = "dropdown-sec"  onclick="product_click()">-->
+                                <div class = "footer-main-dropdown-sec" >
+                                    <button class = "footer-main-dropdown-button" id="footer-product-text">
+                                        <a class="footer-main-button-text" style="margin: 0px;">ПРОДУКЦИЯ      </a><i class="fa-solid fa-caret-down"></i>
+                                        <!--onclick="passIndexToProductPage(-1)"-->
+                                    </button>
+                                    <!-- Drop down content -->
+                                   <div class="footer-main-dropdown-content-container"  id = 'footer-main-dropdown-content-foradd'>
+                                       <script>
+                                            $.ajax({
+                                                type: "POST",
+                                                url: mainUrl+"/serverside/site_control/footer_header_load.php",
+                                                dataType: 'json',
+                                                data: {
+                                                    'data' :1,
+                                                },
+                                                success: function (file_content) {
+                                                    //Output formatted JSON
+                                                    //response - {
+                                                    //      'complete' : ,
+                                                    //      'complete_code' :,
+                                                    //      'data' : {
+                                                    //          'controller' : {
+                                                    //                  [0] : {
+                                                    //                          'name':,
+                                                    //                          "controller_value"  ; ,
+                                                    //                      }
+                                                    //              }
+                                                    //          'type' : {
+                                                    //              [0] : {
+                                                    //                          'name':,
+                                                    //                          "controller_value"  ; ,
+                                                    //                      }
+                                                    //              }        
+                                                    //              
+                                                    //          }
+                                                    //     }
+                                                    //}
+                                                    console.log("Success response : " + JSON.stringify(file_content));
+                                                    for (var i=0 ;i<file_content['data'].length ; i++){
+                                                        //for horizontal menu
+                                                        //a
+                                                        var hMenuA=document.createElement('a');
+                                                        setAttributes(hMenuA,{
+                                                            "class" : "footer-main-contents",
+                                                            "style" : "text-decoration: none; color: #00335E;"
+                                                        });
+                                                        hMenuA.innerText = file_content['data'][i]['name'];
+                                                        //div around a
+                                                        var dropdownContentContainer = document.createElement('div');
+                                                        setAttributes(dropdownContentContainer,{
+                                                            "class" : "footer-main-dropdown-content",
+                                                            "id" : "footer-main-dropdown-content-for-click",
+                                                            "style" : "display: none;",
+                                                            "onclick": "passIndexToProductPage("+(parseInt(file_content['data'][i]['id'])-1).toString()+")",
+                                                        });
+                                                        dropdownContentContainer.appendChild(hMenuA);
+                                                        //through into biggest container
+                                                        document.getElementById("footer-main-dropdown-content-foradd").appendChild(dropdownContentContainer);
+                                                    
+                                                        //for vertical menu
+                                                        //a
+                                                        var vMenuA=document.createElement('a');
+                                                        setAttributes(vMenuA,{
+                                                            "class" : "footer-main-contents",
+                                                            "style" : "text-decoration: none; color: #00335E;"
+                                                        });
+                                                        vMenuA.innerText = file_content['data'][i]['name'];
+                                                        //div around a
+                                                        var dropdownContentContainerV = document.createElement('div');
+                                                        setAttributes(dropdownContentContainerV,{
+                                                            "class" : "footer-main-dropdown-content-v",
+                                                            "style" : "display: none;",
+                                                            "onclick": "passIndexToProductPage("+(parseInt(file_content['data'][i]['id'])-1).toString()+")",
+                                                        });
+                                                        dropdownContentContainerV.appendChild(vMenuA);
+                                                        //through into biggest container
+                                                        document.getElementById("footer-dropdown-content-v-foradd").appendChild(dropdownContentContainerV);
+                                                    }
+
+                                                    //phone
+                                                    document.getElementById('footer-sec-main-info-number').innerHTML='';
+                                                    for(var i=0 ; i<file_content['phone'].length ; i++){
+                                                        var phoneNumber = file_content['phone'][i]['number'];
+                                                        var phoneText = '+7 ('+phoneNumber.substring(1,4)+') '+phoneNumber.substring(4,7)+'-'+phoneNumber.substring(7,9)+'-'+phoneNumber.substring(9);
+                                                        var phoneTextCreate = document.createElement('h2');
+                                                        phoneTextCreate.innerText = phoneText;
+                                                        document.getElementById('footer-sec-main-info-number').appendChild(phoneTextCreate);
+                                                    }
+
+                                                    //address
+                                                    document.getElementById('footer-address').innerText = file_content['address']['name'];
+                                                },
+
+                                                error: function (error_text) {
+                                                    console.log("Error response : " + JSON.stringify(error_text));
+                                                    //showLog('Error in calling file python : ' + JSON.stringify(error_text));// need for use with python
+                                                }
+
+                                            });
+                                        </script>
+                                       <!--
+                                        <div class="footer-main-dropdown-content" onclick="passIndexToProductPage(0)" id="footer-main-dropdown-content-for-click" style="display: none;">
+                                            <a class="footer-main-contents"  style="text-decoration: none; color: #00335E;">
+                                                bear-pc
+                                            </a>
+                                        
+                                        </div>
+                                        <div class="footer-main-dropdown-content" onclick="passIndexToProductPage(1)"  id="footer-main-dropdown-content-for-click" style="display: none;">
+                                            <a class="footer-main-contents" style="text-decoration: none; color: #00335E;">
+                                                bear-mc
+                                            </a>
+                                        </div>-->
+                                    </div>
+                                </div>
+                                <!-- Drop down content for vertical navbar-->
+                                <div id = 'footer-dropdown-content-v-foradd'>
+                                    <!--
+                                    <div class="footer-main-dropdown-content-v" style="display: none;" onclick="passIndexToProductPage(0)" >
+                                        <a class="footer-main-contents" style="text-decoration: none; color: #00335E;">
+                                            bear-pc
+                                        </a>
+                                        
+                                    </div>
+                                    <div class="footer-main-dropdown-content-v" style="display: none;"  onclick="passIndexToProductPage(1)">
+                                        <a class="footer-main-contents" style="text-decoration: none; color: #00335E;">
+                                            bear-mc
+                                        </a>
+                                        
+                                    </div>-->
+                                </div>
+                                <div class = "footer-main-button-sec">
+                                    <button class = "footer-main-button">
+                                        <a class="footer-main-button-text" style="margin: 0px;" href ="http://bear-pc.ru/html/service/">УСЛУГИ</a>
+                                    </button>
+                                </div>
+                                <div class = "footer-main-button-sec" id ="footer-main-about-button">
+                                    <button class = "footer-main-button">
+                                        <a class="footer-main-button-text" style="margin: 0px;" href ="http://bear-pc.ru/html/about/">О НАС</a>
+                                    </button>
+                                </div>
+                                <div class = "footer-main-button-sec">
+                                    <button class = "footer-main-button">
+                                        <a class="footer-main-button-text" style="margin: 0px;" href ="http://bear-pc.ru/html/contact/">КОНТАКТЫ</a>
+                                    </button>
+                                </div>
+                            </div>
+                        </d>
+                    </div>
+    
+                    <!--Lower part-->
+                    <div class = "footer-sec-main-half" id = "footer-sec-main-below">
+                        <div class = "footer-sec-main-info">
+                            <div id = "footer-sec-main-info-number" >
+                                <!--
+                                <h2>+7 (495) 796-24-67</h2>
+                                <h2>+7 (903) 796-24-67</h2>-->
+                            </div>
+                            
+                        </div>
+                        <div class = "footer-sec-main-info">
+                            <div id = "footer-sec-main-info-address">
+                                <h2 id="footer-address">г.Зеленоград, Савёлкинский пр-д, д.4</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            
+        </section>
+        
+    </body>
+</html>

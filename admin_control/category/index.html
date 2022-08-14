@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="admin_category_style.css">
+    <link rel="stylesheet" type="text/css" href="../nav-bar/admin_navbar_style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--src = "js/sub_functions/set_attributes.js"-->
+    <script src="../../js/libs.js"></script>
+    <script src="admin_category.js"></script>
+   
+</head>
+
+<body id="product-center-body" onload="loadPage()">
+    <section class = "product-sec">
+        <div class = "product-navbar-sec">
+            <div id = "product-navbar-sec-load">
+            </div>
+        </div>
+        
+        <div class = "product-main-sec">
+            <div class = "product-main-sidebar" id ='product-main-sidebar-id'>
+                <div class = 'product-sidebar-btn-sec' id="bear-part" onclick="sidebarControl(0)">
+                    <p>BEAR-</p>
+                </div>
+                <div class = 'product-sidebar-btn-sec' id="type-product-part" onclick="sidebarControl(1)">
+                    <p>Тип продукции</p>
+                </div>
+                <div class = 'product-sidebar-btn-sec' id="name-controller-part" onclick="sidebarControl(2)">
+                    <p>Название контроллера или процессора</p>
+                </div>
+            </div>
+            <div class="product-center-sec">
+                <h1>Категории</h1>
+                <div class = 'product-center-container'>
+                    <!--Type bear existed in db-->
+                    <h1>Обзор</h1>
+                    <div class ='product-center-existed-overview' id="bear-type-panel">
+                        <table class = "product-center-table" id="product-center-overview-table-add"  style = "border-collapse: collapse;"> 
+                            <tr>
+                                <td  style="font-weight: 600; border: 1px solid black;" id="product-table-header"></td>
+                                <td  style="font-weight: 600; border: 1px solid black;">Товары в этой категории</td>  
+                            </tr>
+                            
+                            <!--
+                            <tr>
+                                <td class = "product-center-cell" rowspan = "2">Тип:</td>
+                                <td class = "product-center-cell">Модульная система SoM</td>  
+                            </tr>
+                            <tr>
+                                <td class = "product-center-cell">Модульная система SoM</td>  
+                            </tr>
+                            <tr>
+                                <td class = "product-center-cell">Тип:</td>
+                                <td class = "product-center-cell">Тип:</td>
+                            </tr>
+                        -->
+                        </table>
+                    </div><br>
+                    <div style="width: 100%; border-bottom: 2px dashed black;"></div>
+                    <h1>Редактировать</h1>
+                    <div class ='product-center-edit-sec' id="product-center-edit-sec-add">
+                        <!--
+                        <div class = "product-center-edit-cell">
+                            <div class = 'product-center-edit-container'>
+                                <div class = 'product-center-edit-textfield-sec'>
+                                    <input class = 'product-center-edit-textfield' type="text" id="textfield-bear-1" value="aaaa" size="50" readonly >
+                                </div>
+                                <div class = 'product-center-edit-functions-sec'>
+                                    <button class = 'product-center-edit-functions-tbn' onclick="deleteBtnControl(3)" id="delete-bear-1" style="color:red;">Удалить</button>
+                                    <button class = 'product-center-edit-functions-tbn' onclick='editBtnControl(1)' id="edit-bear-1" style="color:green;">Редактировать</button>
+                                    <button class = 'product-center-edit-functions-tbn' onclick='saveBtnControl(1)' id="save-bear-1" style="color:black;" disabled>Сохранить</button>
+                                </div>
+                                
+                            </div>
+
+                            <p style = "color : red; font-size : 10px" id="warning-bear-1"></p>
+                        </div>-->
+                        
+                    </div> 
+                    <br>
+                    <div>
+                        Добавить категорию <input class = 'product-center-edit-textfield' type="text" id="add-textfield" size="50">
+                        <button onclick="addBtnControl()">Добавить</button>
+                    </div>
+                    <p style = "color : red; font-size : 10px" id="add-warning"></p>
+                   
+                </div>
+            </div>
+        </div>
+
+        
+        
+    </section>
+    <!-- Modal content -->
+    <div class="modal-popup-sec" id="modal-control">
+        <div class = "modal-popup-container" style="margin-top : 30px">
+            <h5 id="modal-text">Вы удаляете категорию, товары этой категории отключатся от нее, вы хотите продолжить?</h5>
+        </div>
+        <div class="modal-popup-container">
+            <button onclick="startDelete()"> OKAY </button>
+            <button onclick="modalOff()"> CANCEL </button>
+        </div>
+    </div>
+    
+</body>

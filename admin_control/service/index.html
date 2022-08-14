@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="admin_service_style.css">
+    <link rel="stylesheet" type="text/css" href="../nav-bar/admin_navbar_style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--src = "js/sub_functions/set_attributes.js"-->
+    <script src="../../js/libs.js"></script>
+    <script src="admin_service.js"></script>
+   
+</head>
+
+<body id="service-center-body" onload="loadPage()">
+    <section class = "service-sec">
+        <div class = "product-navbar-sec">
+            <div id = "product-navbar-sec-load">
+            </div>
+        </div>
+        
+        <div class = "service-main-sec">
+            <h1>Услуги</h1>
+            <h3>Верхняя часть</h3>
+            <div class = 'service-center-container'>                
+                <div class ='service-center-edit-sec' id="service-center-edit-sec-add-intro">
+                    
+                    <div class = "service-center-edit-cell">
+                        <div class = 'service-center-edit-container'>
+                            <div class = 'service-center-edit-textfield-sec'>
+                                <textarea class = 'service-center-edit-textfield' type="text" id="textfield-intro-1" ></textarea>
+                            </div>
+                            <div class = 'service-center-edit-functions-sec'>
+                                <button class = 'service-center-edit-functions-tbn' onclick="deleteBtnControl(1)" id="delete-intro-1" style="color:red;">Удалить</button>
+                                <button class = 'service-center-edit-functions-tbn' onclick='saveBtnControl(1)' id="save-intro-1" style="color:black;">Сохранить</button>
+                            </div>
+                            
+                        </div>
+
+                        <p style = "color : red; font-size : 10px" id="warning-intro-1">abc</p>
+                    </div>
+
+                    <div class = "service-center-edit-cell">
+                        <div class = 'service-center-edit-container'>
+                            <div class = 'service-center-edit-textfield-sec'>
+                                <textarea class = 'service-center-edit-textfield' type="text" id="textfield-intro-1" ></textarea>
+                            </div>
+                            <div class = 'service-center-edit-functions-sec'>
+                                <button class = 'service-center-edit-functions-tbn' onclick="deleteBtnControl(1)" id="delete-intro-1" style="color:red;">Удалить</button>
+                                <button class = 'service-center-edit-functions-tbn' onclick='saveBtnControl(1)' id="save-intro-1" style="color:black;">Сохранить</button>
+                            </div>
+                            
+                        </div>
+
+                        <p style = "color : red; font-size : 10px" id="warning-intro-1">abc</p>
+                    </div>
+                    
+                </div> 
+                <br>
+                <div class = 'service-center-add-sec'>
+                    <label>Добавить вступление :</label>
+                     <textarea class = 'service-center-edit-textfield' type="text" id="add-intro-textfield" size="50"></textarea>
+                    <button onclick="addBtnControl(1)" style='margin:5px; height : 40px'>Добавить</button>
+                </div>
+                <p style = "color : red; font-size : 10px" id="add-intro-warning"></p>
+
+               
+            </div>
+
+
+
+            <h3>Нижняя часть</h3>
+            <div class = 'service-center-container'>                
+                <div class ='service-center-edit-sec' id="service-center-edit-sec-add">
+                    
+                    <div class = "service-center-edit-cell">
+                        <div class = 'service-center-edit-container'>
+                            <div class = 'service-center-edit-textfield-sec'>
+                                <textarea class = 'service-center-edit-textfield' type="text" id="textfield-service-1" ></textarea>
+                            </div>
+                            <div class = 'service-center-edit-functions-sec'>
+                                <button class = 'service-center-edit-functions-tbn' onclick="deleteBtnControl(1)" id="delete-service-1" style="color:red;">Удалить</button>
+                                <button class = 'service-center-edit-functions-tbn' onclick='saveBtnControl(1)' id="save-service-1" style="color:black;">Сохранить</button>
+                            </div>
+                            
+                        </div>
+
+                        <p style = "color : red; font-size : 10px" id="warning-service-1">abc</p>
+                    </div>
+
+                    <div class = "service-center-edit-cell">
+                        <div class = 'service-center-edit-container'>
+                            <div class = 'service-center-edit-textfield-sec'>
+                                <textarea class = 'service-center-edit-textfield' type="text" id="textfield-service-1" ></textarea>
+                            </div>
+                            <div class = 'service-center-edit-functions-sec'>
+                                <button class = 'service-center-edit-functions-tbn' onclick="deleteBtnControl(1)" id="delete-service-1" style="color:red;">Удалить</button>
+                                <button class = 'service-center-edit-functions-tbn' onclick='saveBtnControl(1)' id="save-service-1" style="color:black;">Сохранить</button>
+                            </div>
+                            
+                        </div>
+
+                        <p style = "color : red; font-size : 10px" id="warning-service-1">abc</p>
+                    </div>
+                    
+                </div> 
+                <br>
+                <div class = 'service-center-add-sec'>
+                    <label>Добавить Услуги :</label>
+                     <textarea class = 'service-center-edit-textfield' type="text" id="add-textfield" size="50"></textarea>
+                    <button onclick="addBtnControl(2)" style='margin:5px; height : 40px'>Добавить</button>
+                </div>
+                <p style = "color : red; font-size : 10px" id="add-warning"></p>
+
+               
+            </div>
+        </div>
+
+        
+        
+    </section>
+    
+    
+</body>

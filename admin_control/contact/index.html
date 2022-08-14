@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="admin_contact_style.css">
+    <link rel="stylesheet" type="text/css" href="../nav-bar/admin_navbar_style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--src = "js/sub_functions/set_attributes.js"-->
+    <script src="../../js/libs.js"></script>
+    <script src="admin_contact.js"></script>
+   
+</head>
+
+<body id="contact-center-body" onload="loadPage()">
+    <section class = "contact-sec">
+        <div class = "product-navbar-sec">
+            <div id = "product-navbar-sec-load">
+            </div>
+        </div>
+        
+        <div class = "contact-main-sec">
+            <h1>Контакты</h1>
+            <div class = 'contact-center-container'>    
+                <div class = 'contact-category-sec'>
+                    <h3>Телефонные номера</h3>
+                    <div class ='contact-center-edit-sec' id="contact-center-edit-sec-add">
+                    
+                        <div class = "service-center-edit-cell" id="phone-1">
+                            <div class = 'service-center-edit-container'>
+                                <div class = 'service-center-edit-textfield-sec'>
+                                    <label>+7 (</label>
+                                    <input class = 'service-center-edit-textfield' type="text" id="phone-1-1" maxlength="3" size="3">
+                                    <label>) </label>
+                                    <input class = 'service-center-edit-textfield' type="text" id="phone-1-2" maxlength="3" size="3">
+                                    <label>-</label>
+                                    <input class = 'service-center-edit-textfield' type="text" id="phone-1-3" maxlength="2" size="2">
+                                    <label>-</label>
+                                    <input class = 'service-center-edit-textfield' type="text" id="phone-1-4" maxlength="2" size="2">
+                                </div>
+                                <div class = 'service-center-edit-functions-sec'>
+                                    <button class = 'service-center-edit-functions-tbn' onclick="deleteBtnControl(1)"  style="color:red;">Удалить</button>
+                                    <button class = 'service-center-edit-functions-tbn' onclick='saveBtnControl(1)'  style="color:black;">Сохранить</button>
+                                </div>
+                                
+                            </div>
+    
+                            <p style = "color : red; font-size : 10px" id="warning-phone-1"></p>
+                        </div>
+    
+                        <div class = "service-center-edit-cell" id="phone-2">
+                            <div class = 'service-center-edit-container'>
+                                <div class = 'service-center-edit-textfield-sec'>
+                                    <label>+7 (</label>
+                                    <input class = 'service-center-edit-textfield' type="text" id="phone-2-1" maxlength="3" size="3">
+                                    <label>) </label>
+                                    <input class = 'service-center-edit-textfield' type="text" id="phone-2-2" maxlength="3" size="3">
+                                    <label>-</label>
+                                    <input class = 'service-center-edit-textfield' type="text" id="phone-2-3" maxlength="2" size="2">
+                                    <label>-</label>
+                                    <input class = 'service-center-edit-textfield' type="text" id="phone-2-4" maxlength="2" size="2">
+                                </div>
+                                <div class = 'service-center-edit-functions-sec'>
+                                    <button class = 'service-center-edit-functions-tbn' onclick="deleteBtnControl(2)"  style="color:red;">Удалить</button>
+                                    <button class = 'service-center-edit-functions-tbn' onclick='saveBtnControl(2)'  style="color:black;">Сохранить</button>
+                                </div>
+                                
+                            </div>
+    
+                            <p style = "color : red; font-size : 10px" id="warning-phone-2">abc</p>
+                        </div>
+                        
+                    </div> 
+                    <br>
+                    <div class = 'contact-center-add-sec'>
+                        <label>Добавить номер :</label>
+                        <div class = 'service-center-edit-textfield-sec'>
+                            <label>+7 (</label>
+                            <input class = 'service-center-edit-textfield' type="text" onkeyup=" correctFontsizeInput('phone-add-1')" id="phone-add-1" maxlength="3" size="3">
+                            <label>) </label>
+                            <input class = 'service-center-edit-textfield' type="text" onkeyup=" correctFontsizeInput('phone-add-2')" id="phone-add-2" maxlength="3" size="3">
+                            <label>-</label>
+                            <input class = 'service-center-edit-textfield' type="text" onkeyup=" correctFontsizeInput('phone-add-3')" id="phone-add-3" maxlength="2" size="2">
+                            <label>-</label>
+                            <input class = 'service-center-edit-textfield' type="text" onkeyup=" correctFontsizeInput('phone-add-4')" id="phone-add-4" maxlength="2" size="2">
+                        </div>
+                        <button onclick="addBtnControl()" style='margin:5px; height : 40px'>Добавить</button>
+                    </div>
+                    <p style = "color : red; font-size : 10px" id="add-phone-warning"></p>
+                </div>   
+
+                <div class = 'contact-category-sec'>
+                    <h3>Почта</h3>
+                    <input class = 'contact-center-edit-textfield' type="text" id="textfield-email" size="100"></input>
+                    <button class = 'contact-center-edit-functions-tbn' onclick='saveBtnControl(-1)' style="color:black;">Сохранить</button>
+                    <p style = "color : red; font-size : 10px" id="warning-email"></p>
+
+
+                </div>      
+                <div class = 'contact-category-sec'>
+                    <h3>Адрес</h3>
+                    <textarea class = 'contact-center-edit-textfield' type="text" id="textfield-address"></textarea>
+                    <button class = 'contact-center-edit-functions-tbn' onclick='saveBtnControl(-2)' style="color:black;">Сохранить</button>
+                    <p style = "color : red; font-size : 10px" id="warning-address"></p>
+                </div>   
+                <div class = 'contact-category-sec'>
+                    <h3>Время работы</h3>
+                    <textarea class = 'contact-center-edit-textfield' type="text" id="textfield-timework"></textarea>
+                    <button class = 'contact-center-edit-functions-tbn' onclick='saveBtnControl(-3)' style="color:black;">Сохранить</button>
+                    <p style = "color : red; font-size : 10px" id="warning-timework"></p>
+                </div>   
+                <div class = 'contact-category-sec'>
+                    <h3>Ссылка на карту</h3>
+                    <button class = 'contact-center-edit-functions-tbn' onclick="watchFile('http://localhost/assets/page-doc/contact-page/instruction.pdf')" style="color:black;">Руководство для получения ссылки</button>
+                    <button class = 'contact-center-edit-functions-tbn' onclick="watchFile('https://yandex.ru/map-constructor/')" style="color:black;">Создать карту</button>
+
+                    <textarea class = 'contact-center-edit-textfield' type="text" id="textfield-maplink"></textarea>
+                    <button class = 'contact-center-edit-functions-tbn' onclick='saveBtnControl(-4)' style="color:black;">Сохранить</button>
+                    <p style = "color : red; font-size : 10px" id="warning-maplink"></p>
+
+                    <div class ="contact-page-maplink-img-sec">
+                        <img id="map-pic" src="" style ='width: 300px; height : auto;'>
+                    </div>
+
+                    <form style = 'width: 70%;'  method="post" enctype="multipart/form-data">
+                        <input id="img-form" type="file" name="files[]" multiple />
+                        <!--<input type="submit" value="Upload File" name="submit" onclick="takeFile()"/>-->
+                    </form>
+                    <button style = 'width: 20%;' onclick="takeImg()">enter</button>
+                    <div style = 'width: 10%;'>
+                        <img id="img-upload-icon" style = 'width: 100%; height: auto; max-width: 30px;'>
+                    </div>
+                </div>   
+                
+
+               
+            </div>
+        </div>
+
+        
+        
+    </section>
+    
+    
+</body>

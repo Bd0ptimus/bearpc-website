@@ -1,0 +1,270 @@
+html, body{
+    max-width: 100%;
+    /*overflow-x: hidden;*/
+}
+
+body{
+    margin :0;
+}
+
+
+.contactpage-sec{
+    width :100%;
+    height : auto;
+}
+/*Header*/
+.contactpage-header-sec{
+    width :100%;
+    height: auto;
+}
+/*Footer*/
+.contactpage-footer-sec{
+    width :100%;
+    height: auto;
+}
+/*Main*/
+.contactpage-main-sec{
+    max-width: 1160px;
+    width : 100%;
+    height: auto;
+    margin: 30px auto;
+    font-family: "Montserrat", Sans-serif;
+    display: block;
+    justify-content: center;
+}
+
+/*Contact headers*/
+.contactpage-main-contact-map-headers{
+    width : 100%;
+    display: flex;
+    justify-content: center;
+}
+.contactpage-main-contact-blank{
+    width : 100%;
+    height : auto;
+    margin : 10px;
+    background-color: #00335E;
+}
+
+.contactpage-main-contact-headers{
+    width : auto;
+    display: block;
+    justify-content: center;
+    padding : 10px;
+}
+
+.contactpage-main-contact-headers h1{
+    margin : 0;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color : white;
+    width : auto;
+    border-bottom: 3px solid white;
+}
+
+/*Contact text section*/
+.contactpage-main-contact-text-sec{
+    width : 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/*Left part :  Include: 1. phone number, work time
+                        2. email
+                        3. address */
+
+
+
+.contactpage-main-phone-time-header-sec{
+    width : 100%;
+    display: flex;
+    justify-content: center;
+}
+.contactpage-main-headers{
+    width : 50%;
+}
+/*Phone, work time header*/
+.contactpage-main-phone-time-header-sec{
+    width : 100%;
+    font-size: 25px;
+    font-weight: 500;
+    color : #00335E;
+    text-align: center;
+    margin : 10px 0;
+}
+
+
+
+.contactpage-main-contact-sec{
+    width: auto;
+}
+
+
+/*Phone, work time text*/
+.contactpage-main-phone-time-sec{
+    width: auto;
+    padding : 0 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.contactpage-main-text-sec{
+    width: 50%;
+    background-color: #00335E;
+    margin : 0 10px;
+    padding: 10px 30px;
+    border-radius: 10px 10px 10px 10px;
+    display : block;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.contactpage-main-phone-time-text{
+    font-size : 16px;
+    color : white;
+    font-weight: 500;
+    margin: 5px auto;
+    
+}
+
+.contactpage-main-phone-text{
+    /*height: 50%;*/
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*Email, address*/
+.contactpage-main-email-blank{
+    width : 100%;
+    display : block;
+    justify-content: center;
+}
+/*Email, address headers*/
+.contactpage-main-headers{
+    width : 100%;
+    display : flex;
+    justify-content: center;
+}
+
+.contactpage-main-email-address-headers{
+    font-size: 25px;
+    font-weight: 500;
+    color : #00335E;
+    margin : 10px 0;
+}
+
+/*Email, address text*/
+.contactpage-main-email-address-sec{
+    width : auto;
+    display : flex;
+    justify-content: center;
+    background-color : #00335E;
+    padding: 10px;
+    border-radius: 30px 30px 30px 30px;
+}
+.contactpage-main-email-address-text{
+    font-size : 16px;
+    color : white;
+    font-weight: 500;
+    margin: 5px auto;
+    text-align: center;
+}
+
+/*Client question form*/
+.contactpage-main-client-question-sec{
+    margin: 20px auto; 
+    width : auto;
+    display : block;
+    justify-content: center;
+    padding: 20px auto;
+}
+
+.contactpage-main-client-question-textfield-sec{
+    width: 100%;
+    margin : 20px auto;
+}
+
+.contactpage-main-client-question-textfield{
+    border : 3px solid #00335E;
+    width : 98%;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.contactpage-main-client-question-submit{
+    width : 100%;
+    margin : 0px auto;
+    display : flex;
+    justify-content: left;
+}
+
+.contactpage-main-client-question-submit h1{
+    margin : 0;
+    color : #00335E;
+    font-size : 15px;
+    padding : 5px 15px;
+    border-radius: 10px 10px 10px 10px;
+    border : 3px solid #00335E;
+}
+.contactpage-main-client-question-submit h1:hover{
+    background-color: #00335E;
+    color  : white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contactpage-download-map-pic-sec{
+    position: absolute;
+    bottom : 17px;
+    right : 10px;
+    z-index:2 ;
+    background-color : white;
+    border-radius: 10px 10px 10px 10px;
+}
+.contactpage-download-map-pic-sec:hover{
+    cursor: pointer;
+    background-color :rgba(218, 220, 220, 0.5);
+    transition : 0.5s;
+}
+.contactpage-download-map-pic-text{
+    font-size : 16px;
+    margin : 3px 5px;
+}
+
+
+/*Map*/
+.contactpage-main-map{
+    width: auto;
+    margin : auto 15px;
+    height : 450px;
+    position: relative;
+}
+
+@media (max-width: 5000px){
+    .contactpage-main-half{
+        width : 50%;
+        padding : 5px;
+        display: block;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 1020px){
+
+}
+
+@media (max-width : 750px){
+    .contactpage-main-half{
+        width : 100%;
+        padding : 5px;
+        display: block;
+        justify-content: center;
+    }
+}
+

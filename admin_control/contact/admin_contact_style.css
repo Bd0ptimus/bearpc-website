@@ -1,0 +1,90 @@
+
+body{
+    margin :0;
+    font-family: "Montserrat", Sans-serif;
+    width : 100vw;
+}
+
+.contact-sec{
+    width : 100%;
+    display :block;
+    justify-content:center;
+}
+/*
+Navbar
+*/
+.product-navbar-sec{
+    width: 100%;
+    height: auto;
+}
+.product-navbar-sec-load{
+    width: 100%;
+}
+
+/*
+Main sec
+*/
+.contact-main-sec{
+    width: 100%;
+    display: block;
+    justify-content: center;
+}
+
+.contact-center-container{
+    width: 94%;
+    margin:  5px 3%;
+    display: block;
+    justify-content: center;
+}
+
+.contact-category-sec{
+    width : 100%;
+    display: block;
+    justify-content: center;
+    border: 1px dashed black;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.contact-center-edit-sec{
+    width : 100%;
+    display: block;
+    justify-content: center;
+    
+}
+
+.service-center-edit-cell{
+    width : 94%;
+    margin : 3px 3%;
+    border : 1px dashed black;
+    border-radius: 5px 5px 5px 5px;
+    display: block;
+    justify-content: center;
+}
+
+.service-center-edit-container{
+    display: flex;
+    justify-content: center;
+}
+
+.service-center-edit-textfield-sec{
+    width : 70%;
+    padding : 5px;
+}
+
+.service-center-edit-functions-sec{
+    width : 30%;
+    padding : 5px;
+}
+
+.contact-center-edit-textfield{
+    margin : 5px;
+    width : 80%;
+    max-width: 500px;
+    height :60px;
+    resize : vertical;
+}
+
+.contact-page-maplink-img-sec{
+    display: flex;
+    justify-content: center;
+}

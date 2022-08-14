@@ -1,0 +1,38 @@
+https://accounts.google.com/o/oauth2/v2/auth?
+ scope=https://mail.google.com&
+ access_type=offline&
+ include_granted_scopes=true&
+ response_type=code&
+ state=state_parameter_passthrough_value&
+ redirect_uri=http://localhost&
+ client_id=776543608182-tu38hc2tkb6putfg1969266qe0ph8bsa.apps.googleusercontent.com
+
+
+
+http://localhost/?state=state_parameter_passthrough_value&code=4/0AX4XfWh4MW9tDUBfvF6rw41cKdwj9rZ2XZiRM_ez3MHPspc-liUmYvtTXK-2261As4LPIg&scope=https://mail.google.com/
+
+4/0AX4XfWh4MW9tDUBfvF6rw41cKdwj9rZ2XZiRM_ez3MHPspc-liUmYvtTXK-2261As4LPIg
+
+https://oauth2.googleapis.com/token&
+code=4/0AX4XfWh4MW9tDUBfvF6rw41cKdwj9rZ2XZiRM_ez3MHPspc-liUmYvtTXK-2261As4LPIg&
+client_id=776543608182-tu38hc2tkb6putfg1969266qe0ph8bsa.apps.googleusercontent.com&
+client_secrete=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&
+redirect_uri=http://localhost&
+grant_type=authorization_code
+
+
+curl -s \
+--request POST \
+--data "code=4%2F0AX4XfWgAwHuEt-COGT1PXib5oPRibp-FsDlo8IX21bFB4ntYgoLByFaBHxddscHnzX1a1A&client_id=776543608182-tu38hc2tkb6putfg1969266qe0ph8bsa.apps.googleusercontent.com&client_secret=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&redirect_uri=http://localhost&grant_type=authorization_code" \
+https://accounts.google.com/o/oauth2/token 
+
+
+
+{
+  "access_token": "ya29.a0ARrdaM_V96reALebjwWJHw_ov7aFyLc5Ty4QLXl03bpqxK_TgYdNbotxteMYsgLnPMV6TmFb7xnOyBAy-iwDmkVYayGtj35za_MNS46xGZrPn-qaUNP2yd9VMCHRViwAmzvj1yBwvd-onpCCkLvq1KomEE9S",
+  "expires_in": 3599,
+  "refresh_token": "1//0eCa6jqsgNB49CgYIARAAGA4SNwF-L9IrCXmuN3OJlAnO-PUexOeOYzbK6GNzGp7-W0LG3lMaycsRCZ3GbNRtjwqExBqcqd2Xn-8",
+  "scope": "https://mail.google.com/ https://www.googleapis.com/auth/userinfo.email openid https://www.googleapis.com/auth/userinfo.profile",
+  "token_type": "Bearer",
+  "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2NTBhMmNlNDdiMWFiM2JhNDA5OTc5N2Y4YzA2ZWJjM2RlOTI4YWMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNzc2NTQzNjA4MTgyLXR1MzhoYzJ0a2I2cHV0ZmcxOTY5MjY2cWUwcGg4YnNhLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNzc2NTQzNjA4MTgyLXR1MzhoYzJ0a2I2cHV0ZmcxOTY5MjY2cWUwcGg4YnNhLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAzMTY2NDI4OTQzNDU5OTAzMDExIiwiZW1haWwiOiJkZGEuY29uY2VwdC4xQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiaWl1dGZuVGZOWHBMT3JLWVZJcDdaZyIsImlhdCI6MTY1NjQzNTY5MiwiZXhwIjoxNjU2NDM5MjkyfQ.nzY8OIxmTrrLfbLwW0CR_oOWIWynQGRFAujFCHUtJU8_BKdTc2FzmpojczpQgraxKCqTp0VoqIbthfvDVfuJ4M-qo_GHSeYac3YB0ORFQb5WWdWC97nfytMBJtlR5HSdbAyBLc43va2fpeYo-BrXxks-V70dQ_xQvWd670kva8Zo2R9HokAu5Orqxt3Tmrgu3Vrs1txreIgJfwLXItQwfdjaCjeO3WnV5U9vT0UUAuaINSDpcvMtm25-UA4Pg3wwm3wLbwobfjreFzvtwwuhyNezh9LWIK4O6Kpg2hkNo_hse_Q1kR7YBBdlAkBYERMbj-XLNJS2dlOwwLX-utGgzw"
+}

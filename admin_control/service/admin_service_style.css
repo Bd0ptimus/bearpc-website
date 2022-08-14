@@ -1,0 +1,83 @@
+
+body{
+    margin :0;
+    font-family: "Montserrat", Sans-serif;
+    width : 100vw;
+}
+
+.service-sec{
+    width : 100%;
+    display :block;
+    justify-content:center;
+}
+/*
+Navbar
+*/
+.product-navbar-sec{
+    width: 100%;
+    height: auto;
+}
+.product-navbar-sec-load{
+    width: 100%;
+}
+
+/*
+Main sec
+*/
+.service-main-sec{
+    width: 100%;
+    display: block;
+    justify-content: center;
+}
+
+.service-center-container{
+    width: 94%;
+    margin:  5px 3%;
+    display: block;
+    justify-content: center;
+}
+
+.service-center-edit-sec{
+    width : 100%;
+}
+
+.service-center-edit-cell{
+    border: 1px dashed black;
+    border-radius: 5px 5px 5px 5px ;
+    width : 96%;
+    margin : 5px 2%;
+    display: block;
+    justify-content: center;
+}
+
+.service-center-edit-container{
+    width : 100%;
+    display: flex;
+    justify-content:center;
+}
+
+.service-center-edit-textfield-sec{
+    width : 70%;
+}
+
+.service-center-edit-textfield{
+    width : 94%;
+    margin : 5px 3%;
+    max-width: 500px;
+    height : 100px;
+    resize : vertical;
+}
+
+.service-center-edit-functions-sec{
+    margin-top: 20px;
+    width : 30%;
+    display : block;
+    justify-content:left;
+}
+
+.service-center-add-sec{
+    width : 90%;
+    margin : 2px 5%;
+    display : flex;
+    justify-content:center;
+}

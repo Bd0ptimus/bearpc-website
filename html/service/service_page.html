@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/service_style/service_page_style.css" media="screen" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../js/libs.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+        $(function(){
+            $("#servicepage-header-navbar-load").load("../footer-header/header.html");
+        });
+        $(function(){
+            $("#servicepage-footer-load").load("../footer-header/footer.html");
+        });
+        
+        /*
+        $(window).on('load', function(){
+            startLoadingScreen();
+        });
+        $(document).ready(function(){
+            endLoadingScreen();
+        });*/
+
+        function setInterface(file_content){
+            document.getElementById('service-main-service-showing-part').innerHTML='';
+
+            //service
+            for(var i=0 ; i<file_content['data']['service'].length ; i++){
+                //service-main-parts-choosing-img
+                var chooseImg = document.createElement('img');
+                setAttributes(chooseImg,{
+                    'class' : 'service-main-parts-choosing-img',
+                    'src' : '../../assets/page-img/service-page/service-choosing-img.png'
+                });
+
+                //service-main-parts-rect-img-sec
+                var rectImgSec = document.createElement('div');
+                setAttributes(rectImgSec,{
+                    'class' : 'service-main-parts-rect-img-sec'
+                });
+                rectImgSec.appendChild(chooseImg);
+
+                //service-main-parts-rect-text
+                var rectText = document.createElement('p');
+                setAttributes(rectText,{
+                    'class' : 'service-main-parts-rect-text'
+                });
+                rectText.innerText = file_content['data']['service'][i]['text'];
+                
+                //service-main-parts-rect-text-sec
+                var rectTextSec =document.createElement('div');
+                setAttributes(rectTextSec,{
+                    'class' : 'service-main-parts-rect-text-sec'
+                });
+                rectTextSec.appendChild(rectText);
+
+                //service-main-parts-border-sec
+                var borderSec =document.createElement('div');
+                setAttributes(borderSec,{
+                    'class' : 'service-main-parts-border-sec'
+                });
+                borderSec.appendChild(rectImgSec);
+                borderSec.appendChild(rectTextSec);
+
+                //service-main-parts-rect
+                var svMainPartSec =document.createElement('div');
+                setAttributes(svMainPartSec,{
+                    'class' : 'service-main-parts-rect'
+                });
+                svMainPartSec.appendChild(borderSec);
+
+                document.getElementById('service-main-service-showing-part').appendChild(svMainPartSec);
+
+            }
+
+            //intro
+            document.getElementById('service-main-intro-add').innerHTML='';
+
+            if(file_content['data']['intro'].length%2==0){
+                for(var i = 0; i< file_content['data']['intro'].length;i+=2){
+                    //service-main-intro-half
+                    var introHalf1 = document.createElement('div');
+                    setAttributes(introHalf1,{
+                        'class' : 'service-main-intro-half'
+                    });
+
+                    //service-main-intro-text
+                    var introText1 = document.createElement('h1');
+                    setAttributes(introText1,{
+                        'class' : 'service-main-intro-text'
+                    });
+                    introText1.innerText = file_content['data']['intro'][i]['text'];
+                    introHalf1.appendChild(introText1);
+
+                    //service-main-intro-half
+                    var introHalf2 = document.createElement('div');
+                    setAttributes(introHalf2,{
+                        'class' : 'service-main-intro-half'
+                    });
+
+                    //service-main-intro-text
+                    var introText2 = document.createElement('h1');
+                    setAttributes(introText2,{
+                        'class' : 'service-main-intro-text'
+                    });
+                    introText2.innerText = file_content['data']['intro'][i+1]['text'];
+                    introHalf2.appendChild(introText2);
+
+                    //service-main-intro-sec
+                    var mainIntroSec = document.createElement('div');
+                    setAttributes(mainIntroSec,{
+                        'class' : 'service-main-intro-sec'
+                    });
+                    mainIntroSec.appendChild(introHalf1);
+                    mainIntroSec.appendChild(introHalf2);
+                    document.getElementById('service-main-intro-add').appendChild(mainIntroSec);
+                }
+            }else{
+                for(var i = 0; i< file_content['data']['intro'].length-1;i+=2){
+                    //service-main-intro-half
+                    var introHalf1 = document.createElement('div');
+                    setAttributes(introHalf1,{
+                        'class' : 'service-main-intro-half'
+                    });
+
+                    //service-main-intro-text
+                    var introText1 = document.createElement('h1');
+                    setAttributes(introText1,{
+                        'class' : 'service-main-intro-text'
+                    });
+                    introText1.innerText = file_content['data']['intro'][i]['text'];
+                    introHalf1.appendChild(introText1);
+
+                    //service-main-intro-half
+                    var introHalf2 = document.createElement('div');
+                    setAttributes(introHalf2,{
+                        'class' : 'service-main-intro-half'
+                    });
+
+                    //service-main-intro-text
+                    var introText2 = document.createElement('h1');
+                    setAttributes(introText2,{
+                        'class' : 'service-main-intro-text'
+                    });
+                    introText2.innerText = file_content['data']['intro'][i+1]['text'];
+                    introHalf2.appendChild(introText2);
+
+                    //service-main-intro-sec
+                    var mainIntroSec = document.createElement('div');
+                    setAttributes(mainIntroSec,{
+                        'class' : 'service-main-intro-sec'
+                    });
+                    mainIntroSec.appendChild(introHalf1);
+                    mainIntroSec.appendChild(introHalf2);
+                    document.getElementById('service-main-intro-add').appendChild(mainIntroSec);
+                }
+                var len = file_content['data']['intro'].length;
+                var introHalf = document.createElement('div');
+                setAttributes(introHalf,{
+                        'class' : 'service-main-intro-half'
+                });
+
+                //service-main-intro-text
+                var introText = document.createElement('h1');
+                setAttributes(introText,{
+                        'class' : 'service-main-intro-text'
+                });
+                introText.innerText = file_content['data']['intro'][len-1]['text'];
+                introHalf.appendChild(introText);
+
+                var mainIntroSec = document.createElement('div');
+                setAttributes(mainIntroSec,{
+                        'class' : 'service-main-intro-sec'
+                });
+                mainIntroSec.appendChild(introHalf);
+                document.getElementById('service-main-intro-add').appendChild(mainIntroSec);
+
+            }
+            
+
+        }
+
+        function loadPage(){
+            $.ajax({
+                type: "POST",
+                url: mainUrl+"serverside/site_control/service_page_load.php",
+                dataType: 'json',
+                data: {
+                    data: 1,
+                },
+                success: function (file_content) {
+                    console.log("Success response in main : " + JSON.stringify(file_content));
+                    setInterface(file_content);
+                    endLoadingScreen();
+                },
+                error: function (error_text) {
+                    console.log("Error response : " + JSON.stringify(error_text));
+                    //showLog('Error in calling file python : ' + JSON.stringify(error_text));// need for use with python
+                    endLoadingScreen();
+
+                }
+
+            });
+        }
+
+        $(window).resize(function() {
+            if(document.documentElement.clientWidth >= 750){
+               var serviceAll = document.getElementsByClassName('service-main-parts-border-sec');
+               var maxheight=serviceAll[0].offsetHeight;
+               console.log("number service : " + serviceAll.length);
+               for(var i=1; i< serviceAll.length;i++){
+                    var currentHeight = serviceAll[i].offsetHeight;
+                    console.log("current height : i "+i+" : " + currentHeight);
+                    if(maxheight<currentHeight){
+                        maxheight = currentHeight;
+                    }
+               }
+
+               console.log("max height : " + maxheight);
+               var styleHeight = 'height:'+(maxheight-4).toString()+'px;';
+               for(var i=0; i< serviceAll.length;i++){
+                console.log("style height : " + styleHeight);
+                serviceAll[i].setAttribute('style','height:0px;');
+                serviceAll[i].setAttribute('style',styleHeight);
+                var currentHeight = serviceAll[i].offsetHeight;
+                console.log("current height after change : i "+i+" : " + currentHeight);
+
+               }
+
+            }else{
+                var serviceAll = document.getElementsByClassName('service-main-parts-border-sec');
+                for(var i=0; i< serviceAll.length;i++){
+                    serviceAll[i].setAttribute('style','height:auto;');
+
+                }
+
+            }
+        });
+    </script>
+    
+
+</head>
+
+<body>
+    <section class = "servicepage-sec">
+        <div class = "servicepage-header-sec">
+            <div class = "servicepage-header-navbar-sec" style="width:100%; padding: 0; position: relative;">
+                <div id = "servicepage-header-navbar-load">
+                </div>
+            </div>
+        </div>
+
+        <div class = "servicepage-main-sec">
+            <!--Introduce about service-->
+            <div class = "service-main-part-sec" id="service-main-intro-add">
+                <div class = "service-main-intro-sec">
+                    <div class = "service-main-intro-half">
+                        <h1 class = "service-main-intro-text">
+                            Мы производим разработку радиоэлектронных плат на основе микроконтроллеров и микропроцессоров российского или зарубежного производства
+                        </h1>
+                    </div>
+
+                    <div class = "service-main-intro-half">
+                        <h1 class = "service-main-intro-text">
+                            Осуществляем контрактное производство плат под заказ: от разработки плат и сопряжения различных компонентов, до подготовки и запуска в производство
+                        </h1>
+                    </div>
+                    
+                </div>
+                <div class = "service-main-intro-sec">
+                    <div class = "service-main-intro-half">
+                        <h1 class = "service-main-intro-text">
+                            Мы производим разработку радиоэлектронных плат на основе микроконтроллеров и микропроцессоров российского или зарубежного производства
+                        </h1>
+                    </div>
+
+                    <div class = "service-main-intro-half">
+                        <h1 class = "service-main-intro-text">
+                            Осуществляем контрактное производство плат под заказ: от разработки плат и сопряжения различных компонентов, до подготовки и запуска в производство
+                        </h1>
+                    </div>
+                    
+                </div>
+                <div class = "service-main-intro-sec">
+                    <div class = "service-main-intro-half">
+                        <h1 class = "service-main-intro-text">
+                            Мы производим разработку радиоэлектронных плат на основе микроконтроллеров и микропроцессоров российского или зарубежного производства
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+            <!--Main services-->
+            <div class = "service-main-part-sec"  id="service-main-service-showing-part">
+                <!--
+                 <div class = "service-main-parts-rect">
+                        <div class= "service-main-parts-border-sec"  >
+                            <div class = "service-main-parts-rect-img-sec">
+                                <img class = "service-main-parts-choosing-img" src="../../assets/page-img/service-page/service-choosing-img.png">
+                            </div>
+                            <div class = "service-main-parts-rect-text-sec">
+                                <a class="service-main-parts-rect-text" >
+                                    Разработка плат расширения
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class = "service-main-parts-rect">
+                        <div class= "service-main-parts-border-sec">
+                            <div class = "service-main-parts-rect-img-sec">
+                                <img class = "service-main-parts-choosing-img" src="../../assets/page-img/service-page/service-choosing-img.png">
+                            </div>
+                            <div class = "service-main-parts-rect-text-sec">
+                                <a class="service-main-parts-rect-text" >
+                                    Разработка вычислительных модулей на базе российских микроконтроллеров
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class = "service-main-parts-rect">
+                        <div class= "service-main-parts-border-sec">
+                            <div class = "service-main-parts-rect-img-sec">
+                                <img class = "service-main-parts-choosing-img" src="../../assets/page-img/service-page/service-choosing-img.png">
+                            </div>
+                            <div class = "service-main-parts-rect-text-sec">
+                                <a class="service-main-parts-rect-text" >
+                                    Разработка программного обеспечения на базе микроконтроллеров
+                                </a>
+                            </div>
+                        </div>    
+                    </div>-->
+            </div>
+        </div>
+    
+        <div class = "servicepage-footer-sec">
+            <div class = "servicepage-footer-navbar-sec" style="width:100%; padding: 0; position: relative;">
+                <div id = "servicepage-footer-load">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function(){
+            // your code
+            startLoadingScreen();
+            loadPage();
+        });
+    </script>
+</body>

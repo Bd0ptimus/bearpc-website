@@ -1,0 +1,297 @@
+body{
+    margin :0;
+    font-family: "Montserrat", Sans-serif;
+    width : 100vw;
+}
+/*
+Navbar
+*/
+.product-navbar-sec{
+     width: 100%;
+     height: auto;
+}
+.product-navbar-sec-load{
+    width: 100%;
+}
+
+/*
+Main sec
+*/
+.product-main-sec{
+    width: 100%;
+    height: auto;
+    display: block;
+    justify-content: center;
+}
+
+.product-table-sec{
+    margin : 10px 10%;
+    width : 80%;
+    display : flex;
+    justify-content: center;
+}
+
+.product-table-container{
+    width : 100%;
+}
+
+.product-table-row{
+    margin-top : 2px;
+    width : 100%;
+    height : auto;
+    display : flex;
+    justify-content: center;
+    border : 1px solid black;
+    border-radius : 5px 5px 5px 5px;
+}
+
+.product-table-row:hover{
+    cursor: pointer;
+    /*background-color :gray;*/
+}
+
+.product-info-btn{
+    font-size : 13px;
+}
+
+.product-info-btn:hover{
+    text-decoration: underline;
+}
+.product-table-name{
+    width : 16%;
+    display : block;
+    justify-content: center;
+}
+
+.product-table-type-bear{
+    width : 16%;
+    display : block;
+    justify-content: center;
+}
+
+.product-table-type-category{
+    width : 20%;
+    display : block;
+    justify-content: center;
+}
+
+.product-table-type-controller{
+    width : 16%;
+    display : block;
+    justify-content: center;
+}
+
+.product-table-status{
+    width : 11%;
+    display : block;
+    justify-content: center;
+}
+
+.product-info-text{
+    margin : 0px;
+    font-size: 13px;
+}
+
+
+.product-edit-sec{
+    width : 100%;
+    display:block;
+    justify-content: center;
+}
+
+.product-edit-sec{
+    margin :5px 10%;
+    width : 80%;
+}
+
+.product-edit-container{
+    border: 1px dotted black;
+    width : 96%;
+    display:flex; 
+    justify-content: center;
+    padding : 2%
+}
+
+.textfiled-title{
+    width : 20%;
+    margin : 0px;
+}
+
+.main-edit-sec{
+    width : 80%;
+    display: block;
+    justify-content: center;
+}
+
+.choosefile-sec{
+    width : 100%;
+    height: auto;
+    overflow: hidden;
+}
+.imgchoosing-container{
+    width : 100px;
+    height : 100px;
+    display: flex;
+    justify-content: center;
+    padding : 5px;
+    float : left;
+}
+
+.imgchoosing-container:hover{
+    
+}
+
+.imgchoosing-container:hover .img-uploaded-cover{
+    
+    display: block;
+}
+
+.img-uploaded{
+    width : 80px;
+    height : auto;
+}
+
+.img-uploaded-cover{
+    display : none;
+    position : absolute;
+    width : 98px;
+    height : 98px;
+}
+
+.img-main-text-container{
+    width : 100px;
+    margin-top : 30px;
+    align-items : center;
+}
+
+.img-main-text{
+    width : 80%;
+    margin : 0px 10%;
+    font-size : 10px;
+    font-weight: 600;
+}
+
+.img-main-text:hover{
+    cursor: pointer;
+}
+
+
+.product-edit-info-sec{
+    margin : 5px 5%;
+    width : 90%;
+    height : auto;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.product-edit-info-row{
+    width : 100%;
+    display : flex;
+    justify-content :center;
+
+    padding : 5px;
+}
+
+.product-edit-key-cell{
+    border : 0.3px dotted black;
+    width : 48%;
+    display : block;
+    justify-content: center;
+}
+
+.product-edit-value-cell{
+    border : 0.3px dotted black;
+    width : 48%;
+    display : block;
+    justify-content: center;
+}
+
+.value-cell-edit-sec{
+    width: 100%;
+    height : auto;
+}
+
+.value-cell-container{
+    margin : 2%;
+    width : 96%;
+}
+
+.value-cell-btn-delete{
+    width : 20%; 
+    color : red;
+    font-size: 10px;
+}
+
+.info-row-delete-btn{
+    width : 20%;
+    margin : 3px 40%;
+    color : red;
+}
+
+.highlight-sec{
+    width : 100%;
+    height : auto;
+    display : block;
+    justify-content : center;
+}
+
+.hightlight-container{
+    width : 100%;
+    height : 100%;
+    display : flex;
+    justify-content : center;
+}
+
+.filechoosing-row{
+    margin : 5px 5%;
+    border : 1px dotted black;
+    border-radius : 5px 5px 5px 5px;
+    width : 90%;
+    display : flex;
+    justify-content : center;
+}
+
+.filechoosing-name-textfield{
+    width : 70%;
+    display : flex;
+    justify-content : left;
+}
+
+.filechoosing-delete-btn{
+    width : 30%;
+    display: flex;
+    justify-content : left;
+}
+
+.filechoosing-temporary-name{
+    width : auto;
+    margin : 0px;
+}
+
+
+/*Modal*/
+.modal-popup-sec{
+    display:none;
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color:rgba(97, 132, 71, 0.8);
+}
+
+.modal-popup-container{
+    background-color: white;
+    width:50%;
+    margin : 0px 25%;
+    display : flex;
+    justify-content:center;
+}
+
+.stop-scrolling {
+
+    height: 100%;
+    
+    overflow: hidden;
+    
+}
+

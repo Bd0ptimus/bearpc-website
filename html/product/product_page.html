@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/product_style/product_page_style.css" media="screen" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/libs.js"></script>
+    <script src="../../js/product_page/product_page.js" defer></script>
+    <script>
+        $(function(){
+            $("#productpage-header-navbar-load").load("../footer-header/header.html");
+        });
+        $(function(){
+            $("#productpage-footer-load").load("../footer-header/footer.html");
+        });
+
+    </script>
+</head>
+
+<body>
+    <section class = "productpage-sec">
+        <div class = "productpage-header-sec">
+            <div class = "productpage-header-navbar-sec" style="width:100%; padding: 0; position: relative;">
+                <div id = "productpage-header-navbar-load">
+                </div>
+            </div>
+        </div>
+
+        <div class = "productpage-main-sec">
+            
+            <div class = "productpage-product-main-below">
+                <div class = "productpage-half" id = "productpage-main-left" >
+                    <div class = "productpage-half-filter">
+                        <div class = "productpage-half-filter" id = "productpage-half-filter-type-product">
+                            <h2 class = "product-half-filter-title">Тип продукции</h2>
+                            <div class = "product-half-filter-radio-choice" id="product-half-filter-type-product-add">
+                                <div class = "filter-choice-sec" onchange="filterControl('type0')">
+                                    <input type="radio" id="type0" name="type_product" value="0" checked>
+                                    <label for="type0">Все</label>
+                                </div>
+                        
+                            </div>
+                        </div>
+                        <div class = "productpage-half-filter" id = "productpage-half-filter-name-processor">
+                            <h2 class = "product-half-filter-title">Название контроллера или процессора</h2>
+                            <div class = "product-half-filter-radio-choice" id="product-half-filter-name-controller-add">
+                                <div class = "filter-choice-sec" onchange="filterControl('name0')">
+                                    <input type="radio" id="name0" name="name_controller" value="0" checked >
+                                    <label for = "name0" >Все</label>
+                                </div>
+                                
+                                <!--
+                                <input type="radio" id="none" name="name_controller" value="None">
+                                <label for="none">None</label><br>
+                                <input type="radio" id="1892bm14r" name="name_controller" value="1892BM14R">
+                                <label for="1892bm14r">1892ВМ14Я</label><br>-->
+                            </div>
+                        </div>
+                        <div class = "productpage-half-filter" id = "productpage-half-filter-sale">
+                            <!--
+                            <div class = productpage-half-filter-sale-stock onclick="saleButton()">
+                                <img id="sale-icon" src="../../assets/page-img/product-page/sale-icon-black.png" width="16" height="16">
+                                <h3>Показывать только товары со скидкой</h3>
+                            </div>-->
+                        </div>
+                        <div class = "product-half-filter" id = "product-half-filter-instock">
+                            <!--
+                            <div class = "productpage-half-filter-sale-stock" onclick="instockButton()">
+                                <img id = "stock-icon" src="../../assets/page-img/product-page/shopping-cart-icon-black.png" width="16" height="16">
+                                <h3>Только в наличии</h3>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+    
+                <div class = "productpage-half" id = "productpage-main-right">
+                    <div class = 'productpage-right-half-sec'>
+                        <div class="productpage-product-bear" id = 'productpage-bear-type-filter-foradd'>
+                
+                            <!--
+                            <div class="productpage-product-bear-choice" id="productpage-BEAR-PC" onclick="bearControl(0)">
+                                <h1>BEAR-PC</h1>
+                            </div>
+                            <div class="productpage-product-bear-choice" id="productpage-BEAR-MC" onclick="bearControl(1)">
+                                <h1>BEAR-MC</h1>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class = 'productpage-right-half-sec'>
+                        <!--Attention in products-->
+                        <div class = productpage-half-attention-sec id="productpage-product-attention-sec-id">
+                            <div class = "productpage-half-attention-texts" >
+                                <h3 style="font-style: italic; font-weight: 700; ">Внимание!</h3>
+                                <h1 style="font-style: italic; font-weight: 400; font-size:18px;">Доступное количество, сроки поставки и стоимость товара уточняются при заказе.</h1>
+                            </div>               
+                        </div>
+                        <!--products showing-->
+                        <div class = "productpage-half-product-showing-sec" id="productpage-product-showing-sec-add">
+                            <!--
+                            <div class = "productpage-showing-sec">
+                                <div class = "productpage-showing-img-sec">
+                                    <img class = "productpage-showing-img" src="http://localhost/product_data/image/12_main.png">
+                                </div>
+                                <h2 class = "productpage-showing-title">1QI tel01</h2>
+                                <div class = "productpage-showing-button">
+                                    <p class = "productpage-showing-button-text">Подробнее</p>
+                                </div>
+                            </div>
+                        -->
+                            
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        
+        <div class = "productpage-footer-sec">
+            <div class = "productpage-footer-navbar-sec" style="width:100%; padding: 0;  float:bottom;">
+                <div id = "productpage-footer-load">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function(){
+            // your code
+            startLoadingScreen();
+            loadPage();
+        });
+    </script>
+</body>

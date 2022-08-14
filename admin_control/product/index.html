@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="admin_product_style.css">
+    <link rel="stylesheet" type="text/css" href="../nav-bar/admin_navbar_style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--src = "js/sub_functions/set_attributes.js"-->
+    <script src="../../js/libs.js"></script>
+    <script src="admin_product.js"></script>
+    <style>
+        #loader {
+            border: 12px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 12px solid #444444;
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+        }
+          
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+          
+        .center {
+            /*
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;*/
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px; 
+            margin-left: -50px; 
+        }
+    </style>
+   
+</head>
+
+<body id="product-center-body" onload = 'checkLoginPage()'>
+    <div id="loader" class="center"></div>
+    <section class = "product-sec" style="width:100%; padding: 0; position: relative;">
+        <div class = "product-navbar-sec">
+            <div id = "product-navbar-sec-load">
+            </div>
+        </div>
+        <div class="product-main-sec">
+            <h1 style = 'border-bottom: 1px dashed black;'>Продукты</h1>
+
+            <h2>Товары в БД</h2>
+            <div class = 'product-table-sec'>
+                <!--Products existed in db-->
+                
+                <div class = 'product-table-container' id = 'product-table-container-foradd'>
+                    <!--
+                    <div class = 'product-table-row' >
+                        <div class ='product-table-name'>
+                            <p class ='product-info-text'>1QI tel01</p>
+                        </div>
+                        <div class ='product-table-type-bear'>
+                            <p class ='product-info-text'>BEAR-MC</p>
+                        </div>
+                        <div class ='product-table-type-category'>
+                            <p class ='product-info-text'>Микромодули</p>
+                            <p class ='product-info-text'>Телематические системы</p>
+                            <p class ='product-info-text'>Телематические системы</p>
+                            <p class ='product-info-text'>Телематические системы</p>
+                        </div>
+                        <div class ='product-table-type-controller'>
+                            <p class ='product-info-text'>K1986BE1QI</p>
+                        </div>
+                        <div class ='product-table-status'>
+                            <p class ='product-info-text'>Со скидкой</p>
+                            <p class ='product-info-text'>В наличие</p>
+                        </div>
+                        <div class ='product-table-btn'>
+                            <a style="color:blue;" onclick='loadProductForEdit(12)' class ='product-info-btn'>Редактировать</ф>
+                            <a style="color:green;" class ='product-info-btn'>Копировать</a>
+                        </div>
+                    </div>
+                    
+                    <div class = 'product-table-row'>
+                        <div class ='product-table-name'>
+                            <p class ='product-info-text'>1QI tel01</p>
+                        </div>
+                        <div class ='product-table-type-bear'>
+                            <p class ='product-info-text'>BEAR-MC</p>
+                        </div>
+                        <div class ='product-table-type-category'>
+                            <p class ='product-info-text'>Микромодули</p>
+                            <p class ='product-info-text'>Телематические системы</p>
+                            <p class ='product-info-text'>Телематические системы</p>
+                            <p class ='product-info-text'>Телематические системы</p>
+                        </div>
+                        <div class ='product-table-type-controller'>
+                            <p class ='product-info-text'>K1986BE1QI</p>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+            
+        </div>
+
+        <h2>Настройки интерфейса</h2>
+        <div class = 'product-edit-sec'>
+            <h3>Фильтры на странице продукта включают</h3>
+            <div class = 'product-edit-container'>
+                <div class = 'main-edit-sec' style = 'width: 40%;'>
+                    
+                    <input type="checkbox" id="productpage-filter-type" name="productpage-filter" value="type" >
+                    <label>Тип продукции</label><br/>
+                    
+                    <input type="checkbox" id="productpage-filter-controller" name="productpage-filter" value="controller" >
+                    <label>Название контроллера или процессора</label><br/>
+
+                    <input type="checkbox" id="productpage-filter-sale" name="productpage-filter" value="sale" >
+                    <label>Со скидкой</label><br/>
+
+                    <input type="checkbox" id="productpage-filter-instock" name="productpage-filter" value="instock" >
+                    <label>В наличии</label><br/>
+                    <button onclick="productPageFilterControl()">Сохранить</button>
+
+                </div>
+            </div>
+        </div>
+
+
+        <h2>Таблица редактирования</h2>
+        <div class = 'product-edit-sec'>
+            <div class = 'product-edit-control-btns'>
+                <button id = 'add-new-product-command-btn' onclick="location.reload();">Добавить новые продукты</button>
+                <h3 id = 'add-new-product-label'></h3>
+            </div>
+            
+            <!--Edit part-->
+            <div class = 'product-edit-container'>
+                <h5 class="textfiled-title" >Название продукт</h5>
+                <div class = 'main-edit-sec'>
+                    <input id="name-edit-textfield" style = 'width : 100%' type="text" name="name-edit" value="" size="50" >
+                </div>
+                
+            </div>
+
+            <div class = 'product-edit-container'>
+                <h5 class="textfiled-title" >В наличии</h5>
+                <div class = 'main-edit-sec'>
+                    
+                    <input type="radio" id="stock-1" name="stock" value="1" checked>
+                    <label>Да</label><br/>
+                    
+                    <input type="radio" id="stock-0" name="stock" value="0" >
+                    <label>Нет</label><br/>
+                    
+                </div>
+                
+            </div>
+
+            <div class = 'product-edit-container'>
+                <h5 class="textfiled-title" >Скидка</h5>
+                <div class = 'main-edit-sec'>
+                    
+                    <input type="radio" id="sale-1"  name="sale" value="1" >
+                    <label>Да</label><br/>
+                    
+                    <input type="radio" id="sale-0"  name="sale" value="0" checked>
+                    <label>Нет</label><br/>
+                    
+                </div>
+                
+            </div>
+
+            <div class = 'product-edit-container'>
+                <h5 class="textfiled-title" >BEAR типы</h5>
+                <div class = 'main-edit-sec' id="bear-type-menu">
+                    <!--
+                    <input type="radio" id="bear-type-1" name="bear-type" value="bear-pc" >
+                    <label>BEAR-PC</label><br/>
+                    
+                    <input type="radio" id="bear-type-1" name="bear-type" value="bear-mc" >
+                    <label>BEAR-MC</label><br/>
+                    
+                    <input type="radio" id="bear-type-1" name="bear-type" value="bear-ip" >
+                    <label>BEAR-IP</label><br/>-->
+                </div>
+                
+            </div>
+            <div class = 'product-edit-container'>
+                <h5 class="textfiled-title" >Типы продукции</h5>
+                <div class = 'main-edit-sec' id="types-menu">
+                    <!--
+                    <input type="checkbox" id="type-product-1" name="type-product" value="a" >
+                    <label>aaaaaaa</label><br/>
+                    
+                    <input type="checkbox" id="type-product-1" name="type-product" value="b" >
+                    <label>bbbb</label><br/>
+                    
+                    <input type="checkbox" id="type-product-1" name="type-product" value="c" >
+                    <label>vvvvvv</label><br/>-->
+                </div>
+                
+            </div>
+
+            <div class = 'product-edit-container'>
+                <h5 class="textfiled-title" >Название контроллера</h5>
+                <div class = 'main-edit-sec' id="controller-menu">
+                    <!--
+                    <input type="checkbox" id="type-controller-1" name="type-controller" value="a" >
+                    <label>aaaaaaa</label><br/>
+                    
+                    <input type="checkbox" id="type-controller-1" name="type-controller" value="b" >
+                    <label>bbbb</label><br/>
+                    
+                    <input type="checkbox" id="type-controller-1" name="type-controller" value="c" >
+                    <label>vvvvvv</label><br/>-->
+                </div>
+                
+            </div>
+
+            <div class = 'product-edit-container'>
+                <h5 class="textfiled-title" >Картины</h5>
+                <div class = 'main-edit-sec' style ='display: block; justify-content:center;'>
+                    <div class = 'choosefile-sec 'style ='display: flex; justify-content:center;'>
+                        
+                        <form style = 'width: 70%;'  method="post" enctype="multipart/form-data">
+                            <input id="img-form" type="file" name="files[]" multiple />
+                            <!--<input type="submit" value="Upload File" name="submit" onclick="takeFile()"/>-->
+                        </form>
+                        <button style = 'width: 20%;' onclick="takeFile(1)">enter</button>
+                        <div style = 'width: 10%;'>
+                            <img id="img-upload-icon" style = 'width: 100%; height: auto; max-width: 30px;'>
+                        </div>
+                    </div>
+                    <p style="font-size:13px; color:red;" id="imgchoose-warning"></p>
+                    <p style="font-size:13px">*) Загружать фотографии только в форматах jpg, jpeg, png и не более 2Mb</p>
+                    <div class = 'choosefile-sec' id = 'imgchoosing-sec'>
+                        <!--
+                        <div class="imgchoosing-container" id="1657037611.png">
+                            <img class="img-uploaded" src="http://localhost/serverside/admin_control/img_uploaded_in_waiting/1657037611.png">
+                            <div class="img-uploaded-cover">
+                                <div class="img-main-text-container">
+                                    <button class="img-main-text" style="color:blue;" onclick="setMainPic('1657037611.png')">Сделать главным фото</button>
+                                    <button class="img-main-text" style="color:red;" onclick="deletePic('1657037611.png')">Удалить</button>
+                                </div>
+                            </div>
+                        </div>-->                
+                        
+                    </div>
+                    <div class = 'choosefile-sec' style="display:flex; justify-content:center;">
+                        <h3>Главное фото</h3>
+                    </div>
+
+                    <div class = 'choosefile-sec' style="display:flex; justify-content:center;" id="main-pic-sec">
+                        <img alt="Главное фото" style = 'width: 200px; height: auto; min-height: 200px; max-height: 250px;  border:1px dashed black;' id="main-pic-choose" />
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            <div class = 'product-edit-container'>
+                <h5 class="textfiled-title" >Файлы</h5>
+                <div class = 'main-edit-sec' style ='display: block; justify-content:center;'>
+                    <div class = 'choosefile-sec 'style ='display: flex; justify-content:center;'>
+                        
+                        <form style = 'width: 70%;'  method="post" enctype="multipart/form-data">
+                            <input id="file-form" type="file" name="files[]" multiple />
+                            <!--<input type="submit" value="Upload File" name="submit" onclick="takeFile()"/>-->
+                        </form>
+                        <button style = 'width: 20%;' onclick="takeFile(2)">enter</button>
+                        <div style = 'width: 10%;'>
+                            <img id="file-upload-icon" style = 'width: 100%; height: auto; max-width: 30px;' >
+                        </div>   
+                    </div>
+                    <p style="font-size:13px; color:red;" id="filechoose-warning"></p>
+                    <p style="font-size:13px">*) Загружать фотографии только в форматах pdf и не более 20Mb</p>
+                    <div class = 'choosefile-sec' id = 'filechoosing-sec' style="display:block; justify-content:center">
+                        <!--
+                        <div class = 'filechoosing-row' id="123.pdf">
+                            <div class = 'filechoosing-name-textfield' >
+                                <label>Метка файла : </label>
+                                <input  type="text"  value="" size="auto" >
+                                <p class = 'filechoosing-temporary-name'>123.pdf</p>
+                            </div>
+                            <div class = 'filechoosing-delete-btn'>
+                                <button style="color:red" onclick="deleteFile('')">Удалить</button>
+                                <button onclick="watchFile('')">Посмотреть</button>
+                            </div>
+                        </div>
+
+                        <div class = 'filechoosing-row'>
+                            <div class = 'filechoosing-name-textfield'>
+                                <label>Метка файла : </label>
+                                <input  type="text"  value="" size="auto" >
+                                <p class = 'filechoosing-temporary-name'>123.pdf</p>
+                            </div>
+                            <div class = 'filechoosing-delete-btn'>
+                                <button style="color:red" onclick="deleteFile('')">Удалить</button>
+                                <button onclick="watchFile('')">Посмотреть</button>
+                            </div>
+                        </div>-->
+                        
+                    </div>
+                    
+                    
+                </div>
+                
+            </div>
+
+            
+
+            <div class = 'product-edit-container'>
+                <h5 class="textfiled-title" >Краткое описание</h5>
+                <div class = 'main-edit-sec' style ='display: block; justify-content:center;'>
+                    <div class="highlight-sec" id ='highligh-table-for-add'>
+                        <div class = 'hightlight-container'>
+                            <input style = 'width : 70%' type="text" size="50" >
+                            <button id="hightlight-value-1" onclick="deleteDataInHighlightTable('hightlight-value-1')" class="value-cell-btn-delete highlight-value" type="button">Удалить</button>
+                        </div>
+                        <!--
+                        <div class = 'hightlight-container'>
+                            <input style = 'width : 70%' type="text" size="50" >
+                            <button id="hightlight-value-3" onclick="deleteDataInHighlightTable('hightlight-value-3')" class="value-cell-btn-delete highlight-value" type="button">Удалить</button>
+                        </div>-->
+                    </div>
+                    <button onclick="addDataInHighlightTable()" type="button" >Добавить</button>
+                </div>
+            </div>
+
+
+            <div class = 'product-edit-container'>
+                <h5 class="textfiled-title" >Описание</h5>
+                <div class = 'main-edit-sec' style ='display: block; justify-content:center;'>
+                    <div id = 'product-des-row-sec'>
+                        <div class = 'product-edit-info-sec' >
+                            <div class = "product-edit-info-row">
+                                <div class = 'product-edit-key-cell'>
+                                    <input style = 'width : 70%' type="text"   size="50" >
+                                </div>
+                                <div class = 'product-edit-value-cell'>
+                                    <div class = 'value-cell-edit-sec'>
+                                        <div class = 'value-cell-container'>
+                                            <input style = 'width : 70%' type="text"  size="50" >
+                                            <button id="des-key-1-value-1" onclick="deleteInDesTable('des-key-1-value-1')" class="value-cell-btn-delete des-key-1-value" type="button">Удалить</button>
+                                        </div>
+                                        <!--
+                                        <div class = 'value-cell-container'>
+                                            <input style = 'width : 70%' type="text" value="" size="50" >
+                                            <button id="des-key-1-value-2" onclick="deleteInDesTable('des-key-1-value-2')" class="value-cell-btn-delete des-key-1-value" type="button">Удалить</button>
+                                        </div>-->
+                                    </div>
+                                    <button id = 'add-value-key-1' onclick="addDataInDesTable('add-value-key-1',2)" type="button" >Добавить</button>
+                                </div>
+                            </div>
+                            <button class ='info-row-delete-btn' type="button" id="des-key-1" onclick="deleteDataInDesTable('des-key-1')">Удалить</button>
+                        </div>
+    
+    
+                        <!--
+                        <div class = 'product-edit-info-sec'>
+                            <div class = "product-edit-info-row">
+                                <div class = 'product-edit-key-cell'>
+                                    <input style = 'width : 70%' type="text"  value="aaaa" size="50" >
+                                </div>
+                                <div class = 'product-edit-value-cell'>
+                                    <div class = 'value-cell-edit-sec'>
+                                        <div class = 'value-cell-container'>
+                                            <input style = 'width : 70%' type="text" value="aaaa" size="50" >
+                                            <button id="des-key-2-value-1" onclick="deleteDataInDesTable('des-key-2-value-1')" class="value-cell-btn-delete des-key-2-value" type="button">Удалить</button>
+                                        </div>
+                                        <div class = 'value-cell-container'>
+                                            <input style = 'width : 70%' type="text"  value="aaaa" size="50" >
+                                            <button id="des-key-2-value-2" onclick="deleteDataInDesTable('des-key-2-value-2')" class="value-cell-btn-delete des-key-2-value" type="button">Удалить</button>
+                                        </div>
+                                        <div class = 'value-cell-container'>
+                                            <input style = 'width : 70%' type="text"  value="aaaa" size="50" >
+                                            <button id="des-key-2-value-3" onclick="deleteDataInDesTable('des-key-2-value-3')" class="value-cell-btn-delete des-key-2-value" type="button">Удалить</button>
+                                        </div>
+                                        <div class = 'value-cell-container'>
+                                            <input style = 'width : 70%' type="text"  value="aaaa" size="50" >
+                                            <button id="des-key-2-value-4" onclick="deleteDataInDesTable('des-key-2-value-4')" class="value-cell-btn-delete des-key-2-value" type="button">Удалить</button>
+                                        </div>
+                                        
+                                    </div>
+                                    <button id='add-value-key-2' onclick="addDataInDesTable('add-value-key-2',2)" type="button">Добавить</button>
+                                </div>
+                            </div>
+                            <button class ='info-row-delete-btn' type="button" id="des-key-2" onclick="deleteDataInDesTable('des-key-2')">Удалить</button>
+                        </div>-->
+
+                    </div>
+                    
+                    
+                    <button type="button" id = 'add-key' onclick="addDataInDesTable('add-key',1)">Добавить</button>
+                    
+                </div>
+                
+                
+            </div>
+            <div style = 'display:block;justify-content: left;' id="save-warning">
+                <!--
+                <div id = 'save-warning-sec'>
+                    <p style = 'color:red;'>*)abc</p>
+                    <p style = 'color:red;'>*)abc</p>
+                    <p style = 'color:red;'>*)abc</p>
+                </div>-->
+                
+            </div>
+            <div class = 'product-edit-control-btns' style="display:flex;justify-content: right;">
+                <button onclick = 'saveEvent()'>Сохранить</button>
+                <button id="delete-confirm-btn" style="color:red" onclick = 'deleteProduct()'>Удалить Продукт</button>
+            </div>
+            
+
+        </div>
+
+    </section>
+    <!-- Modal content -->
+    <div class="modal-popup-sec" id="modal-control">
+        <div class = "modal-popup-container" style="margin-top : 30px">
+            <h5 id="modal-text"></h5>
+        </div>
+        <div class="modal-popup-container">
+            <button onclick="addNewProduct()"> OKAY </button>
+            <button onclick="modalOff()"> CANCEL </button>
+        </div>
+    </div>
+    
+</body>

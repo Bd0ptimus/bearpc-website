@@ -1,0 +1,283 @@
+html, body{
+    max-width: 100%;
+    /*overflow-x: hidden;*/
+}
+
+body{
+    margin :0;
+}
+
+.productdetail-sec{
+    width : auto;
+    height: auto;
+}
+
+/*Header*/
+.productdetail-header-sec{
+    width :100%;
+    height: auto;
+}
+
+/*Footer*/
+.productdetail-footer-sec{
+    width :100%;
+    height: auto;
+}
+
+/*Main sec*/
+.productdetail-main-sec{
+    max-width: 1160px;
+    height: auto;
+    margin: 0px auto;
+    /*padding : 10px;*/
+    font-family: "Montserrat", Sans-serif;
+    color:#00335E;
+    width : 100%;
+    display: block;
+    justify-content:center;
+}
+
+/*left part*/
+.productdetail-main-half{
+    display: block;
+    justify-content:center;
+}
+/*main pic sec*/
+.productdetail-main-pic-sec{
+    width : 100%;
+    display: flex;
+    justify-content:center;
+}
+.productdetail-main-pic{
+    max-width: 250px;
+    height : auto;
+    width: 50%;
+}
+/*sub pics sec*/
+.product-pics-sec{
+    width : 100%;
+    height : auto;
+    max-height: 90px;
+    display: flex;
+    justify-content:right;
+}
+
+.productdetail-sub-pics-sec{
+    width:20%;
+    height : auto;
+    display: flex;
+    justify-content:center;
+}
+
+.productdetail-sub-pics-sec:hover{
+    cursor: pointer;
+    border : 1px dashed black;
+    transition: 0.5s;
+}
+
+.productdetail-sub-pic{
+    width : 80%;
+    max-width: 80px;
+    height : auto;
+    
+}
+
+.productdetail-highlight-text-sec{
+    width : 90%;
+    margin : 5px 5%;
+}
+
+.productdetail-highlight-text{
+    font-size: 15px;
+    color:black;
+}
+
+/*description and docs part*/
+.productdetail-des-sec, td{
+    border: 0.5px solid black;
+    
+}
+
+.productdetail-name-sec{
+    width : 100%;
+    display: flex;
+    justify-content:left;
+}
+
+.productdetail-main-bear-type{
+    padding: 3px 10px;
+    margin : 10px;
+    display: flex;
+    justify-content:center;
+    border : 2px solid #00335E;
+    border-radius : 10px 10px 10px 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.productdetail-bear-type-text{
+    height: auto;
+    vertical-align: middle;
+    margin:auto;
+    font-size : 13px;
+    font-weight : 400;
+}
+.productdetail-main-name{
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.productdetail-control-btn-sec{
+    width : 100%;
+    border-bottom: 0.5px solid gray;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: left;
+}
+
+.productdetail-description-button{
+    width :auto;
+    height : auto;
+}
+
+.productdetail-button-text{
+    padding : 10px 20px;
+    margin : 0px;
+    color : black;
+    font-weight: 600;
+}
+/*
+.productdetail-button-text:hover{
+    cursor: pointer;
+    border-top : 3px solid #00335E;
+    transition: 0.3s;
+}*/
+
+.productdetail-details-sec{
+    width : 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.productdetail-docs-sec{
+    height : auto;
+    width : 100%;
+    display: flex;
+    justify-content: left;
+}
+
+.productdetail-single-doc-sec:hover{
+    cursor: pointer;
+
+}
+
+.productdetail-cell{
+    padding : 7px;
+    font-size : 13px;
+}
+
+.productdetail-single-doc-sec a{
+    text-decoration: none;
+    color : #00335E;
+}
+
+.productdetail-recommend-sec{
+    width : 100%;
+    display : flex;
+    justify-content :left;
+}
+
+
+/*Recommend section */
+.productdetail-recommend-product{
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 150px;
+    border: 2px solid #ccc;
+    border-radius: 3%;
+    background: #eee;
+    padding: 7px 5px;
+    margin: 14px 9px;
+    overflow: hidden;
+    display: flex;
+    justify-content:center;
+}
+
+.productdetail-recommend-img{
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform .4s;
+}
+
+.productdetail-recommend-title-sec{
+    position: absolute;
+    margin: 0px 1px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(25, 30, 32, 0.72);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+    cursor: pointer;
+}
+
+.productdetail-recommend-product:hover .productdetail-recommend-title-sec{
+    visibility: visible;
+    opacity: 1;
+}
+
+.productdetail-recommend-product:hover  img{
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
+}
+
+.productdetail-recommend-float-container{
+    position: absolute;
+    margin-top:50%;
+    margin-left: 10%;
+}
+
+.productdetail-recommend-float-container p{
+    line-height: 15px;
+    font-family: arial,sans-serif;
+
+    font-size: 13px;
+}
+
+@media (max-width:5000px){
+
+    .productdetail-main-showing-sec{
+        width : 100%;
+        display : flex;
+        justify-content:center;
+    }
+
+    .productdetail-main-half{
+        width: 50%;
+    }
+
+}
+
+@media (max-width:1020px){
+
+}
+
+
+@media (max-width:750px){
+
+
+    .productdetail-main-showing-sec{
+        width : 100%;
+        display : block;
+        justify-content:center;
+    }
+
+    .productdetail-main-half{
+        width: 100%;
+    }
+}

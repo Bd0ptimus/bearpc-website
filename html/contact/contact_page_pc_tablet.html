@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/contact_style/contact_page_pc_tablet_style.css" media="screen" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/libs.js"></script>
+    <script src="../../js/sub_functions/user_request.js"></script>
+    <script src="../../js/contact_page/contact_page.js"></script>
+    <script src="../../js/sub_functions/file_saver.js"></script>
+
+
+    <script >
+        $(function(){
+            $("#contactpage-header-navbar-load").load("../footer-header/header.html");
+        });
+        $(function(){
+            $("#contactpage-footer-load").load("../footer-header/footer.html");
+        });
+        
+        /*
+        $(window).on('load', function(){
+            startLoadingScreen();
+        });
+        $(document).ready(function(){
+            endLoadingScreen();
+        });*/
+    </script>
+    
+
+</head>
+
+<body>
+    <section class = "contactpage-sec">
+        <div class = "contactpage-header-sec">
+            <div class = "contactpage-header-navbar-sec" style="width:100%; padding: 0; position: relative;">
+                <div id = "contactpage-header-navbar-load">
+                </div>
+            </div>
+        </div>
+        <div class = "contactpage-main-sec">
+            
+
+            <div class = "contactpage-main-contact-map-headers">
+                <!--Contact header-->
+
+                <!--Left part-->
+                <div class = "contactpage-main-contact-blank">
+                    <div class = "contactpage-main-contact-headers" id="contactpage-contact-header-text">
+                        <h1>Контакты</h1>
+                    </div>
+                </div>
+
+                <!--Right part-->
+                <div class = "contactpage-main-contact-blank">
+                    <div class = "contactpage-main-contact-headers" id="contactpage-contact-header-text">
+                        <h1>Как до нас добраться?</h1>
+                    </div>
+                </div>
+            </div>
+            <div class = "contactpage-main-contact-text-sec">
+                <!--Left part-->
+                <!--Include : 1. phone number, work time
+                            2. email
+                            3.address -->
+                <div class = "contactpage-main-half">
+                    <!--Phone number, work time part-->
+                    <div class = "contactpage-main-contact-sec">
+                        <!--Phone number, work time blank-->
+                        <!--Headers-->
+                        <div class = "contactpage-main-phone-time-header-sec">
+                            <div class = "contactpage-main-headers" >
+                                <h1 class = "contactpage-main-phone-time-header-sec">Телефон:</h1>
+                            </div>
+                            <div class = "contactpage-main-headers">
+                                <h1 class = "contactpage-main-phone-time-header-sec">Время работы:</h1>
+                            </div>
+                        </div>
+                        
+                        <div class  = "contactpage-main-phone-time-sec">
+                            <!--Left part (Phone number)-->
+                            <div class = "contactpage-main-text-sec" id="contactpage-phone-add">
+                                <!--
+                                <h1 class = "contactpage-main-phone-time-text contactpage-main-phone-text" >+7 (495) 796-24-67</h1>
+                                <h1 class = "contactpage-main-phone-time-text contactpage-main-phone-text" >+7 (903) 796-24-67</h1>
+                                -->
+                            </div>
+                            <!--Right part (Work time)-->
+                            <div class = "contactpage-main-text-sec">
+                                <!--
+                                <h1 class = "contactpage-main-phone-time-text" id="contactpage-main-time-text">Пн-Пт: с 9:00 до 19:00</h1>
+                                <h1 class = "contactpage-main-phone-time-text" id="contactpage-main-time-text">Сб: с 9:00 до 15:00</h1>
+                                <h1 class = "contactpage-main-phone-time-text" id="contactpage-main-time-text">Вс: выходной</h1>
+                                -->
+                                <h1 class = "contactpage-main-phone-time-text" id="contactpage-main-time-text"></h1>
+                            </div>
+                        </div>
+                        
+                    </div>
+    
+                    <!--Email-->
+                    <div class="contactpage-main-email-blank">
+                        <div class = "contactpage-main-headers " >
+                            <h1 class = "contactpage-main-email-address-headers">Почта:</h1>
+                        </div>
+                        <div class = "contactpage-main-email-address-sec" >
+                            <h1 class="contactpage-main-email-address-text" id ='contactpage-email-add'>info@bear-pc.ru</h1>
+                        </div>
+                    </div>
+    
+                    <!--Address-->
+                    <div class="contactpage-main-email-blank">
+                        <div class = "contactpage-main-headers " >
+                            <h1 class = "contactpage-main-email-address-headers">Адрес:</h1>
+                        </div>
+                        <div class = "contactpage-main-email-address-sec">
+                            <h1 class="contactpage-main-email-address-text" id="contactpage-address-add">г. Зеленоград, Савёлкинский пр-д, д.4, эт.13, помещение ХХI/ком 13-3</h1>
+                        </div>
+                    </div>
+    
+                    <!--Client question part-->
+                    <div class = "contactpage-main-client-question-sec">
+                        <div class="contactpage-main-client-question-textfield-sec">
+                            <input type = "email" id="contactpage-email-field"  class = "contactpage-main-client-question-textfield" placeholder="Введите ваш email" style = "height: 40px; font-size:15px; font-family: 'Montserrat', Sans-serif;">
+                        </div>
+                        <div class="contactpage-main-client-question-textfield-sec">
+                            <textarea type = "text" id="contactpage-question-field" class = "contactpage-main-client-question-textfield" placeholder="Ваш вопрос" style = "height: 100px; font-size:15px; font-family: 'Montserrat', Sans-serif; resize: none;"></textarea>
+                        </div>
+                        <div class = "contactpage-main-client-question-submit">
+                            <h1 onclick="user_request_handler(1)">Отправить</h1>
+                            <div >
+                                <img id="contactpage-loading-icon" width="20px" height="20px" style="margin-top:6.5px; display:none;">
+                                
+                            </div>
+                        </div>
+                        <p id="contactpage-loading-warning" height="20px" style="margin-top:6.5px; display:none; color: red;">Уведомление о некорректности: Пожалуйста, проверьте адрес электронной почты или содержимое сообщения</p>
+                    </div>
+                </div>
+                <!--Right part-->
+                <!--Include : Map -->
+                <div class = "contactpage-main-half">
+                    <div class = "contactpage-main-map">
+                        <iframe id="contactpage-maplink-add" src="" width="100%" height="100%" frameborder="0"></iframe>                    
+                        <div class ='contactpage-download-map-pic-sec' id="map-pic-add" onclick="">
+                            <p class ='contactpage-download-map-pic-text'>Скачать изображение карты</p>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class = "contactpage-footer-sec">
+            <div class = "contactpage-footer-navbar-sec" style="width:100%; padding: 0; position: relative;">
+                <div id = "contactpage-footer-load">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function(){
+            // your code
+            startLoadingScreen();
+            loadPage();
+        });
+    </script>
+</body>

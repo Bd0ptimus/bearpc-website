@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/about_style/about_page_style.css" media="screen" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/libs.js"></script>
+
+    <script src="../../js/sub_functions/user_request.js"></script>
+    <script>
+    
+       
+        
+        $(function(){
+            $("#aboutpage-header-navbar-load").load("../footer-header/header.html");
+        });
+        $(function(){
+            $("#aboutpage-footer-load").load("../footer-header/footer.html");
+        });
+        
+        async function loadPage() {
+            var result = await $.ajax({
+                type: "POST",
+                url: mainUrl+"serverside/site_control/about_page_load.php",
+                dataType: 'json',
+                data: {
+                    'data': 1,
+                },
+                success: function (file_content) {
+                    console.log("Success response : " + JSON.stringify(file_content));
+
+                    //start create html
+                    for(var i= 0; i< file_content['data'].length; i++) {
+                        //title sec
+                        var titleText = document.createElement('h1');
+                        setAttributes(titleText,{
+                            'class' : 'aboutpage-main-about-headers-text'
+                        });
+                        titleText.innerText = file_content['data'][i]['title'];
+                        //title border sec : aboutpage-main-about-headers-border-sec
+                        var titleBorderSec = document.createElement('div');
+                        setAttributes(titleBorderSec,{
+                            'class' : 'aboutpage-main-about-headers-border-sec'
+                        });
+                        titleBorderSec.appendChild(titleText);
+                        //header text sec 
+                        var headerTextSec = document.createElement('div');
+                        setAttributes(headerTextSec,{
+                            'class' : 'aboutpage-main-about-headers-sec'
+                        });
+                        headerTextSec.appendChild(titleBorderSec);
+
+
+                        //main sec
+                        var setItalic = '';
+                        if(file_content['data'][i]['italic'] == '1'){
+                            setItalic='font-style : italic;';
+                        }
+                        var setFont = 'font-size : '+file_content['data'][i]['fontsize']+'px;';
+                        var historyText = document.createElement("h1");
+                        setAttributes(historyText,{
+                            'class' : 'aboutpage-main-about-body-text',
+                            'style' : setFont+setItalic,
+                        });
+                        historyText.innerText = file_content['data'][i]['text'];
+                        var historyTextSec =document.createElement('div');
+                        setAttributes(historyTextSec,{
+                            'class' : 'aboutpage-main-about-body-inside-sec'
+                        });
+                        historyTextSec.appendChild(historyText);
+                        //aboutpage-main-about-body-sec
+                        var mainBodySec = document.createElement('div');
+                        setAttributes(mainBodySec,{
+                            'class': 'aboutpage-main-about-body-sec'
+                        });
+                        mainBodySec.appendChild(historyTextSec);
+
+                        //aboutpage-main-half-about-sec
+                        var mainHalfAboutSec =document.createElement('div');
+                        setAttributes(mainHalfAboutSec,{
+                            'class' : 'aboutpage-main-half-about-sec'
+                        });
+                        mainHalfAboutSec.appendChild(headerTextSec);
+                        mainHalfAboutSec.appendChild(mainBodySec);
+
+                        document.getElementById('aboutpage-main-left-sec').appendChild(mainHalfAboutSec);
+                    }
+                    endLoadingScreen();
+
+                },
+                error: function (error_text) {
+                    console.log("Error response : " + JSON.stringify(error_text));
+                    //showLog('Error in calling file python : ' + JSON.stringify(error_text));// need for use with python
+                    endLoadingScreen();
+                }
+
+            });
+            return result;
+        }
+        $(window).on('load', function(){
+            startLoadingScreen();
+        });
+        /*
+        $(document).load(function(){
+            
+        });*/
+        $(document).ready(function(){
+            // your code
+            //startLoadingScreen();
+            loadPage();
+        });
+    </script>
+    
+
+</head>
+
+<body>
+    <section class = "aboutpage-sec">
+        <div class = "aboutpage-header-sec">
+            <div class = "aboutpage-header-navbar-sec" style="width:100%; padding: 0; position: relative;">
+                <div id = "aboutpage-header-navbar-load">
+                </div>
+            </div>
+        </div>
+
+        <div class = "aboutpage-main-sec">
+            <div class = "aboutpage-main-half" id="aboutpage-main-left-sec">
+                <!--
+                <div class = "aboutpage-main-half-about-sec">
+                    <div class = "aboutpage-main-about-headers-sec">
+                        <div class = "aboutpage-main-about-headers-border-sec">
+                            <h1 class = "aboutpage-main-about-headers-text">Кто мы?</h1>
+                        </div>
+                    </div>
+                    <div class="aboutpage-main-about-body-sec" >
+                        <div class = "aboutpage-main-about-body-inside-sec">
+                            <h1 class = "aboutpage-main-about-body-text" style="font-size:16px; font-style:italic;">ООО «Алериа» — коллектив молодых учащихся и выпускников МИЭТ. Возраст коллектива 20-40 лет. Мы активно занимаемся разработкой в области радиоэлектроники в основном с использование российских микроконтроллеров и процессоров.</h1>
+                        </div>
+                        <div class = "aboutpage-main-about-body-inside-sec">
+                            <h1 class = "aboutpage-main-about-body-text" style="font-size:16px; font-style:italic;">Мы разработали платформу Bear-pc, Bear-pi, Bear-mc, как определенный стандарт для разработчиков и проектировщиков радиоэлектронной аппаратуры. При использовании данной платформы появляется возможность быстрого подбора и замены вычислительных модулей и плат расширения.</h1>
+                        </div>
+                        <div class = "aboutpage-main-about-body-inside-sec">
+                            <h1 class = "aboutpage-main-about-body-text" style="font-size:16px; font-style:italic;">Основное расположение  г. Зеленоград. </h1>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+
+            <div class = "aboutpage-main-half" id="aboutpage-main-right-sec">
+                <div class="aboutpage-main-email-sec">
+                    <div class = "aboutpage-main-email-header-sec">
+                        <h1 class = "aboutpage-main-email-header-text">Обратная связь</h1>
+                    </div>
+                    <div class = "aboutpage-main-email-body-sec">
+                        <div class = "aboutpage-main-email-body-textfield-sec">
+                            <input type = "email" id="aboutpage-email-field"  class = "aboutpage-main-client-question-textfield" placeholder="Введите ваш email" style = "height: 40px; font-size:15px; font-family: 'Montserrat', Sans-serif;">
+                        </div>
+                        <div class = "aboutpage-main-email-body-textfield-sec">
+                            <textarea type = "text"  id="aboutpage-question-field" class = "aboutpage-main-client-question-textfield" placeholder="Ваш вопрос" style = "height: 100px; font-size:15px; font-family: 'Montserrat', Sans-serif; resize: none;"></textarea>
+                        </div>
+                        <div class = "aboutpage-main-email-body-confirm-sec">
+                            <div class = "aboutpage-main-email-body-confirm-border-sec">
+                                <h1  onclick="user_request_handler(2)">Отправить</h1>
+                                <div >
+                                    <img id="aboutpage-loading-icon" width="20px" height="20px" style="margin-top:6.5px; display:none;">
+                                    
+                                </div>
+                            </div>
+                            <p id="aboutpage-loading-warning" height="20px" style="margin-top:6.5px; display:none; color: red;">Уведомление о некорректности: Пожалуйста, проверьте адрес электронной почты или содержимое сообщения</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class = "aboutpage-footer-sec">
+            <div class = "aboutpage-footer-navbar-sec" style="width:100%; padding: 0; position: relative;">
+                <div id = "aboutpage-footer-load">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

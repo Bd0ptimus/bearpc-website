@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../css/footer-header-style/header_style.css" media="screen" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/04e9a3dbb4.js" crossorigin="anonymous"></script>
+        <script src="../../js/footer-header-controller/header_control.js"></script>
+    </head>
+    <body>
+        <section class = "header-sec">
+            <div class = "main-sec">
+                 <!-- Logo -->
+                <span class = "logo-sec">
+                    <img src="../../assets/page-img/nav-bar/logo108x300.png" width="45">
+                </span>
+                <!-- Nav bar -->
+                <span class = "navbar-sec">
+                    <div class = "navbar-content-sec">
+                        <div class = "button-sec">
+                            <button class="button">
+                                <a class="button-text" href ="http://bear-pc.ru/">ГЛАВНАЯ</a>
+                            </button>
+                        </div>
+                        <!--<div class = "dropdown-sec"  onclick="product_click()">-->
+                        <div class = "dropdown-sec" >
+                            <button class = "dropdown-button" id="header-product-text">
+                                <a class="button-text" style="text-decoration: none;" >ПРОДУКЦИЯ</a><!--onclick="passIndexToProductPage(-1)"-->
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
+                            <!-- Drop down content -->
+                            <div class="dropdown-content" id="dropdown-content-for-click">
+                                <script>
+                                            
+                                    $.ajax({
+                                        type: "POST",
+                                        url: mainUrl+"/serverside/site_control/footer_header_load.php",
+                                        dataType: 'json',
+                                        data: {
+                                            'data' :1,
+                                        },
+                                        success: function (file_content) {
+                                            //Output formatted JSON
+                                            //response - {
+                                            //      'complete' : ,
+                                            //      'complete_code' :,
+                                            //      'data' : {
+                                            //          'controller' : {
+                                            //                  [0] : {
+                                            //                          'name':,
+                                            //                          "controller_value"  ; ,
+                                            //                      }
+                                            //              }
+                                            //          'type' : {
+                                            //              [0] : {
+                                            //                          'name':,
+                                            //                          "controller_value"  ; ,
+                                            //                      }
+                                            //              }        
+                                            //              
+                                            //          }
+                                            //     }
+                                            //}
+                                            console.log("Success response : " + JSON.stringify(file_content));
+                                            
+                                            for (var i=0 ;i<file_content['data'].length ; i++){
+                                                //for horizontal menu
+                                                //a
+                                                var hMenuAHeader = document.createElement('a');
+                                                setAttributes(hMenuAHeader ,{
+                                                    "class" : "contents",
+                                                    "onclick" : "passIndexToProductPage(" + (parseInt(file_content['data'][i]['id'])-1).toString() + ")",
+                                                    "style" : "text-decoration: none;"
+                                                });
+                                                hMenuAHeader .innerText = file_content['data'][i]['name'];
+                                                //div container
+                                                var contentContainerDivHeader  =document.createElement('div');
+                                                setAttributes(contentContainerDivHeader ,{
+                                                    "class" : "contents-container"
+                                                });
+                                                contentContainerDivHeader.appendChild(hMenuAHeader);
+                                                document.getElementById('dropdown-content-for-click').appendChild(contentContainerDivHeader);
+
+
+                                                //for vertical menu
+                                                var vMenuAHeader  = document.createElement('a');
+                                                setAttributes(vMenuAHeader ,{
+                                                    "class" : "contents",
+                                                    "onclick" : "passIndexToProductPage(" + (parseInt(file_content['data'][i]['id'])-1).toString() + ")",
+                                                });
+                                                vMenuAHeader.innerText = file_content['data'][i]['name'];
+                                                document.getElementById('content-container-foradd').appendChild(vMenuAHeader);
+                                            }   
+
+                                            //phone
+                                            document.getElementById('header-phone').innerHTML ='';
+                                            for(var i=0 ; i< file_content['phone'].length ; i++){
+                                                var phoneNumber= file_content['phone'][i]['number'];
+                                                var phoneText = '+7 (' + phoneNumber.substring(1,4) + ') ' + phoneNumber.substring(4,7) + '-' + phoneNumber.substring(7,9) + '-'+phoneNumber.substring(9);
+                                                var phoneTextCreate = document.createElement('p');
+                                                setAttributes(phoneTextCreate ,{
+                                                    'class' : 'contact-number'
+                                                });
+                                                phoneTextCreate.innerText=phoneText;
+                                                document.getElementById('header-phone').appendChild(document.createElement('div').appendChild(phoneTextCreate));
+                                            }
+
+                                            //timework
+                                            document.getElementById('header-timework').innerHTML ='';
+
+                                            var timeworkList = file_content['timework']['info'].split('\n');
+                                            for(var i=0; i< timeworkList.length; i++){
+                                                var text = document.createElement('p');
+                                                setAttributes(text,{
+                                                    'class' : 'working-info'
+                                                });
+
+                                                text.innerText = timeworkList[i];
+                                                document.getElementById('header-timework').appendChild(document.createElement('div').appendChild(text));
+                                            }
+                                        },
+
+                                        error: function (error_text) {
+                                            console.log("Error response : " + JSON.stringify(error_text));
+                                            //showLog('Error in calling file python : ' + JSON.stringify(error_text));// need for use with python
+                                        }
+
+                                    });
+                                </script>
+                                
+                                <!--
+                                <div class = "contents-container">
+                                    <a class="contents" onclick="passIndexToProductPage(0)" style="text-decoration: none;">
+                                        bear-pc
+                                    </a>
+                                </div>
+                                <div class = "contents-container">
+                                    <a class="contents" onclick="passIndexToProductPage(1)" style="text-decoration: none;">
+                                        bear-mc
+                                    </a>
+                                </div>-->
+                            </div>
+                        </div>
+                        <!-- Drop down content for vertical navbar-->
+                        <div class="dropdown-content-v">
+                            <div class = "contents-container" id="content-container-foradd">
+                                <!--
+                                <a class="contents"  onclick="passIndexToProductPage(0)">
+                                    bear-pc
+                                </a>
+                                <a class="contents"  onclick="passIndexToProductPage(1)">
+                                    bear-mc
+                                </a>-->
+                            </div>
+                        </div>
+                        <div class = "button-sec">
+                            <button class = "button">
+                                <a class="button-text" href ="http://bear-pc.ru/html/service/">УСЛУГИ</a>
+                            </button>
+                        </div>
+                        <div class = "button-sec" id ="about-button">
+                            <button class = "button">
+                                <a class="button-text" href ="http://bear-pc.ru/html/about/">О НАС</a>
+                            </button>
+                        </div>
+                        <div class = "button-sec">
+                            <button class = "button" >
+                                <a class="button-text" href ="http://bear-pc.ru/html/contact/">КОНТАКТЫ</a>
+                            </button>
+                        </div>
+                    </div>
+                </span>
+                <!-- Info -->
+                <span class = "info-sec">
+                    <div id = 'header-phone'>
+                        <div><p class="contact-number">+7 (495) 796-24-67</p></div>
+                        <div><p class="contact-number">+7 (903) 796-24-67</p></div>
+                    </div>
+                    <div id = 'header-timework'>
+                        <div ><p class="working-info">Пн-Пт: с 9-00 до 19-00</p></div>
+                        <div ><p class="working-info">Сб: с 9-00 до 15:00</p></div>
+                        <div ><p class="working-info">Вс: выходной</p></div>
+                    </div>
+
+                </span>
+            </div>
+           
+        </section>
+        
+    </body>
+</html>

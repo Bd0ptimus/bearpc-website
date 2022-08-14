@@ -1,0 +1,217 @@
+html, body{
+    max-width: 100%;
+    /*overflow-x: hidden;*/
+}
+
+body{
+    margin :0;
+}
+
+
+.aboutpage-sec{
+    width :auto;
+    height : auto;
+}
+/*Header*/
+.aboutpage-header-sec{
+    width :100%;
+    height: auto;
+}
+/*Footer*/
+.aboutpage-footer-sec{
+    width :100%;
+    height: auto;
+}
+
+/*Main sec*/
+.aboutpage-main-sec{
+    max-width: 1160px;
+    width : auto;
+    height: auto;
+    margin: 0px auto;
+    padding : 10px;
+    font-family: "Montserrat", Sans-serif;
+    color:#00335E;
+    
+}
+
+.aboutpage-main-about-headers-text{
+    margin : 0px 10px;
+}
+
+.aboutpage-main-about-body-text{
+    margin : 0px 10px;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.aboutpage-main-about-body-text-history{
+    margin : 0px 10px;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/*Main half*/
+.aboutpage-main-half{
+    display: block;
+    justify-content:center;
+}
+
+/*Main Left section*/
+.aboutpage-main-half-about-sec{
+    border : 3px solid #00335E;
+    border-radius : 10px 10px 10px 10px;
+    padding : 20px;
+    margin : 30px 0px;
+}
+
+.aboutpage-main-about-headers-border-sec{
+    padding : 10px 0px;
+    border-bottom: 3px solid #00335E;
+}
+
+.aboutpage-main-about-headers-sec{
+    padding-bottom: 20px;
+}
+
+.aboutpage-main-about-body-sec{
+    padding: 20px 0px;
+}
+
+.aboutpage-main-about-body-inside-sec{
+    padding : 10px 0px;
+}
+
+
+/*Main Right section*/
+.aboutpage-main-email-sec{
+    border : 3px solid #00335E;
+    border-radius : 10px 10px 10px 10px;
+    padding : 20px;
+    margin : 30px 0px;
+    display : block;
+    justify-content : center;
+}
+
+/*Header sec*/
+.aboutpage-main-email-header-sec{
+    padding : 20px 0px;
+    display : flex;
+    justify-content : center;
+}
+
+.aboutpage-main-email-header-text{
+    font-size: 30px;
+    margin : 0px;
+    text-align:center;
+}
+
+/*Body sec*/
+/*Text fields*/
+.aboutpage-main-email-body-sec{
+    width : 100%;
+}
+
+.aboutpage-main-email-body-textfield-sec{
+    width : 100%;
+    margin-bottom: 5px;
+}
+.aboutpage-main-client-question-textfield{
+    padding : 0px;
+    width: 100%;
+    border : 3px solid #00335E;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/*Submit button*/
+.aboutpage-main-email-body-confirm-sec{
+    width : 100%;
+    display : block;
+    justify-content : center;
+}
+
+.aboutpage-main-email-body-confirm-border-sec{
+    width : 100%;
+    display : flex;
+    justify-content: center;
+}
+
+.aboutpage-main-email-body-confirm-border-sec h1{
+    margin : 0;
+    color : #00335E;
+    font-size : 15px;
+    padding : 5px 15px;
+    border-radius: 10px 10px 10px 10px;
+    border : 3px solid #00335E;
+}
+
+.aboutpage-main-email-body-confirm-border-sec h1:hover{
+    background-color: #00335E;
+    color : white;
+    cursor: pointer;
+}
+
+
+@media (max-width:5000px){
+    .aboutpage-main-sec{
+        display: flex;
+        justify-content:center;
+    }
+
+    /*Main sec*/
+    .aboutpage-main-about-headers-text{
+        font-size: 28px;
+    }
+    /*Main half*/
+    /*Main Left section*/
+    #aboutpage-main-left-sec{
+        width: 70%;
+        padding-right: 15px;
+    }
+
+    #aboutpage-main-right-sec{
+        width : 30%;
+        padding-left: 15px;
+    }
+}
+
+@media (max-width:1020px){
+    .aboutpage-main-sec{
+        display: flex;
+        justify-content:center;
+    }
+
+    /*Main sec*/
+    .aboutpage-main-about-headers-text{
+        font-size: 25px;
+    }
+}
+
+@media (max-width:750px){
+    .aboutpage-main-sec{
+        display: block;
+        justify-content:center;
+    }
+
+    /*Main sec*/
+    .aboutpage-main-about-headers-text{
+        font-size: 25px;
+    }
+    /*Main half*/
+    /*Main Left section*/
+    .aboutpage-main-half{
+        width : 100%;
+    }
+
+    #aboutpage-main-left-sec{
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    #aboutpage-main-right-sec{
+        width : 100%;
+        padding-left: 0px;
+    }
+}

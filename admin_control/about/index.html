@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="admin_about_style.css">
+    <link rel="stylesheet" type="text/css" href="../nav-bar/admin_navbar_style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--src = "js/sub_functions/set_attributes.js"-->
+    <script src="../../js/libs.js"></script>
+    <script src="admin_about.js"></script>
+   
+</head>
+
+<body id="about-center-body" onload="aboutPageLoad()">
+    <section class = "about-sec">
+        <div class = "product-navbar-sec">
+            <div id = "product-navbar-sec-load">
+            </div>
+        </div>
+        
+        <div class = "about-main-sec">
+            <!--
+            <div class = "product-main-sidebar" id = 'about-main-sidebar-id'>
+                <div class = 'about-sidebar-btn-sec' id="history-part" onclick="sidebarFrontEndChange(0)">
+                    <p>История</p>
+                </div>
+            </div>
+            <div class="product-center-sec">
+                
+            </div>-->
+
+            <h1>О НАС</h1>
+                <div class ='about-center-edit-sec' id="about-center-edit-sec-add">
+                        <!--
+                        <div class = "about-center-edit-cell">
+                            <div class = 'about-center-edit-container'>
+                                <div class = 'about-center-edit-textfield-sec' style = 'width:56%'>
+                                    <div class = 'about-center-edit-smallest-sec'>
+                                        <label>Текстовая метка:</label>
+                                        <input class = 'about-center-title-edit-textfield' type="text" id="textfield-title-1" value="" readonly>
+                                    </div>
+                                    <div class = 'about-center-edit-smallest-sec'>
+                                        <label>Текст:</label>
+                                        <textarea class = 'about-center-edit-textfield' type="text" id="textfield-history-1" readonly ></textarea>
+                                    </div>
+                                </div>
+                                <div class = 'about-center-edit-functions-sec' style = 'width:36%'>
+                                    <div class = 'about-center-edit-sec-func-btns'>
+                                        <label class="textfiled-title" >Курсив:</label>
+                                        <div>
+                                            <input type="radio" id="italic-1"  name="italic-1" value="1" checked>
+                                            <label>Да</label><br/>
+                                            
+                                            <input type="radio" id="italic-0"  name="italic-1" value="0" >
+                                            <label>Нет</label><br/>
+                                            
+                                        </div>
+
+                                        <label class="textfiled-title" >Размер шрифта : </label>
+                                        <input type="text" id="fontsize-1" value="16" size = '2' maxlength="2" onkeyup="correctFontsizeInput('fontsize-1')" readonly>
+                                        <label class="textfiled-title" >px</label>
+                                    </div>
+                                    <div class = 'about-center-edit-sec-func-btns'>
+                                        <button class = 'about-center-edit-functions-tbn' onclick="deleteBtnControl(1)" id="delete-history-1" style="color:red;">Удалить</button>
+                                        <button class = 'about-center-edit-functions-tbn' onclick='editBtnControl(1)' id="edit-history-1" style="color:green;">Редактировать</button>
+                                        <button class = 'about-center-edit-functions-tbn' onclick='saveBtnControl(1)' id="save-history-1" style="color:black;" disabled>Сохранить</button>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+
+                            <p style = "color : red; font-size : 10px" id="warning-history-1"></p>
+                        </div>-->
+                        
+                </div> 
+                <br>
+                <div class = 'add-new-info-sec'>
+                    <label>Добавить категорию<label>
+                    <div>
+                        Текстовая метка:<input class = 'about-center-title-edit-textfield' type="text" id="add-textfield-title" value="" >
+                    </div>
+                    <div>
+                        Текст: <textarea class = 'about-center-edit-textfield' type="text" id="add-textfield" size="50"></textarea>
+
+                    </div>
+                    <div>
+                        <label class="textfiled-title" >Курсив:</label>
+                        <div>
+                            <input type="radio" id="italic-add"  name="italic-add" value="1" checked>
+                            <label>Да</label><br/>
+                                            
+                            <input type="radio" id="italic-add"  name="italic-add" value="0" >
+                            <label>Нет</label><br/>
+                                            
+                        </div>
+                    </div>
+                    <div>
+                        <label class="textfiled-title" >Размер шрифта : </label>
+                        <input type="text" id="fontsize-add" value="16" size = '2' maxlength="2" onkeyup="correctFontsizeInput('fontsize-add')">
+                        <label class="textfiled-title" >px</label>
+                    </div>
+                    <button onclick="addBtnControl()">Добавить</button>
+                </div>
+                <p style = "color : red; font-size : 10px" id="add-warning"></p>
+        </div>
+
+        
+        
+    </section>
+    <!-- Modal content -->
+    <!--
+    <div class="modal-popup-sec" id="modal-control">
+        <div class = "modal-popup-container" style="margin-top : 30px">
+            <h5 id="modal-text">Вы удаляете категорию, товары этой категории отключатся от нее, вы хотите продолжить?</h5>
+        </div>
+        <div class="modal-popup-container">
+            <button onclick="startDelete()"> OKAY </button>
+            <button onclick="modalOff()"> CANCEL </button>
+        </div>
+    </div>-->
+    
+</body>

@@ -1,0 +1,118 @@
+
+body{
+    margin :0;
+    font-family: "Montserrat", Sans-serif;
+    width : 100vw;
+}
+
+.about-sec{
+    width: 100%;
+    height: auto;
+}
+/*
+Navbar
+*/
+.product-navbar-sec{
+    width: 100%;
+    height: auto;
+}
+.product-navbar-sec-load{
+    width: 100%;
+}
+
+/*
+Main sec
+*/
+.about-main-sec{
+    width: 100%;
+    height: 1000px;
+    display: block;
+    justify-content: center;
+}
+
+/*Side bar*/
+.product-main-sidebar{
+    width: 20%;
+    background-color: gray;
+}
+
+.about-sidebar-btn-sec{
+    margin : 5px 10px;
+    padding : 10px;
+    border : 1px solid black;
+    border-radius :10px 10px 10px 10px;
+}
+.about-sidebar-btn-sec p{
+    margin:0px;
+    font-size: 16px;
+}
+
+.about-sidebar-btn-sec:hover{
+    cursor: pointer;
+    background-color:white;
+}
+
+/*center sec*/
+.product-center-sec{
+    width: 80%;
+    height: 100%;
+}
+
+
+.about-center-edit-sec{
+    width : 100%;
+    height : auto;
+    display : block;
+    justify-content : center;
+}
+
+.about-center-edit-cell{
+    width : 96%;
+    display : block;
+    justify-content : center;
+    border : 1px dashed black;
+    border-radius : 5px 5px 5px 5px;
+    margin : 2px 2%;
+}
+
+.about-center-edit-container{
+    display: flex;
+    justify-content : center;
+}
+
+.about-center-edit-textfield-sec{
+    margin : 3px 2%;
+    display : block;
+    justify-content : center;
+}
+
+.about-center-edit-smallest-secf{
+    width: 96%;
+    margin : 3px 2%; 
+}
+
+.about-center-edit-textfield{
+    resize: vertical;
+    width : 100%;
+    min-height: 400px;
+}
+
+.about-center-edit-functions-tbn{
+    margin: 2px;
+}
+
+.add-new-info-sec{
+    padding: 10px;
+    display: block;
+    justify-content : center;
+}
+
+.about-center-edit-functions-sec{
+    display : block;
+    justify-content : center;
+}
+
+.about-center-edit-sec-func-btns{
+    width: 96%;
+    margin : 3px 2%;
+}
